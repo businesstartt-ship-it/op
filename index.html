@@ -11,7 +11,7 @@
         body { font-family: 'Poppins', sans-serif; }
     </style>
 
-    <!-- Meta Pixel Code (Replace YOUR_PIXEL_ID with your actual Pixel ID) -->
+    <!-- Meta Pixel Code -->
     <script>
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -37,10 +37,9 @@
     </div>
 
     <!-- Header / Navbar -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <!-- Ensure your logo image is named 'logo.jpg' -->
                 <img src="logo.jpg" alt="Hotspy Logo" class="h-10 sm:h-12 w-auto object-contain" onerror="this.src='https://via.placeholder.com/150x50?text=Hotspy'">
             </div>
             <nav class="hidden md:flex space-x-8 text-sm font-semibold text-slate-600">
@@ -81,7 +80,6 @@
             </div>
             <div class="flex justify-center">
                 <div class="relative w-72 sm:w-80 h-96 bg-gradient-to-t from-red-600/30 to-transparent rounded-3xl p-4 border border-white/10 shadow-2xl backdrop-blur-md">
-                    <!-- Ensure chilli image is named 'chilli.jpg' -->
                     <img src="chilli.jpg" alt="Hotspy Chilli Powder" class="w-full h-full object-cover rounded-2xl shadow-lg" onerror="this.src='https://via.placeholder.com/400x500?text=Hotspy+Chilli+Powder'">
                     <div class="absolute -bottom-4 -right-4 bg-white text-slate-900 font-bold px-4 py-3 rounded-2xl shadow-xl border border-slate-100 text-sm">
                         🔥 100% Organic & Fresh
@@ -96,17 +94,18 @@
         <div class="text-center max-w-2xl mx-auto mb-16">
             <span class="text-red-600 font-bold tracking-wider uppercase text-xs">Our Premium Catalog</span>
             <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl mt-2">Pure Spices Jars for Your Kitchen</h2>
-            <p class="mt-3 text-slate-600 text-sm sm:text-base">Click order on any item to instantly select it in your checkout form.</p>
+            <p class="mt-3 text-slate-600 text-sm sm:text-base">Click on any product image or card to view close-ups, gallery pictures & descriptions!</p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             
             <!-- Product 1: Chilli Powder -->
-            <div class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+            <div class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group cursor-pointer" onclick="openModal('Chilli Powder (মরিচ গুঁড়া)', 220, 'chilli.jpg', ['chilli.jpg', 'chilli-back.jpg', 'chilli-jar.jpg'], 'Our premium Chilli Powder is sourced from selected high-grade red chillies. Carefully cleaned, sun-dried, and stone-ground to retain its natural fiery heat and rich red color. Completely free from artificial dyes or chemical enhancers.')">
                 <div>
                     <div class="h-64 bg-slate-100 overflow-hidden relative">
                         <img src="chilli.jpg" alt="Chilli Powder" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Chilli+Powder'">
                         <span class="absolute top-3 left-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Bestseller</span>
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white font-semibold text-sm">🔍 View Details</div>
                     </div>
                     <div class="p-6">
                         <h3 class="text-lg font-bold text-slate-900">Chilli Powder (মরিচ গুঁড়া)</h3>
@@ -118,17 +117,18 @@
                     </div>
                 </div>
                 <div class="p-6 pt-0">
-                    <button onclick="selectProduct('Chilli Powder (মরিচ গুঁড়া) - ৳220', 220)" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
-                        Order Now (COD)
+                    <button onclick="event.stopPropagation(); toggleProductSelection('product1', 220)" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                        Select for Order
                     </button>
                 </div>
             </div>
 
             <!-- Product 2: Cumin Powder -->
-            <div class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+            <div class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group cursor-pointer" onclick="openModal('Cumin Powder (জিরা গুঁড়া)', 250, 'cumin.jpg', ['cumin.jpg', 'cumin-back.jpg', 'cumin-jar.jpg'], 'Finely milled from top-tier aromatic cumin seeds. Adds an earthy, warm, and deeply aromatic profile to curries, marinades, and everyday household dishes.')">
                 <div>
                     <div class="h-64 bg-slate-100 overflow-hidden relative">
                         <img src="cumin.jpg" alt="Cumin Powder" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Cumin+Powder'">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white font-semibold text-sm">🔍 View Details</div>
                     </div>
                     <div class="p-6">
                         <h3 class="text-lg font-bold text-slate-900">Cumin Powder (জিরা গুঁড়া)</h3>
@@ -140,17 +140,18 @@
                     </div>
                 </div>
                 <div class="p-6 pt-0">
-                    <button onclick="selectProduct('Cumin Powder (জিরা গুঁড়া) - ৳250', 250)" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
-                        Order Now (COD)
+                    <button onclick="event.stopPropagation(); toggleProductSelection('product2', 250)" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                        Select for Order
                     </button>
                 </div>
             </div>
 
             <!-- Product 3: Coriander Powder -->
-            <div class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+            <div class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group cursor-pointer" onclick="openModal('Coriander Powder (ধনিয়া গুঁড়া)', 180, 'coriander.jpg', ['coriander.jpg', 'coriander-back.jpg', 'coriander-jar.jpg'], 'Made from premium dried coriander seeds. Perfectly ground to deliver a mild, citrusy, and refreshing herbal scent that elevates any traditional Bangladeshi recipe.')">
                 <div>
                     <div class="h-64 bg-slate-100 overflow-hidden relative">
                         <img src="coriander.jpg" alt="Coriander Powder" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Coriander+Powder'">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white font-semibold text-sm">🔍 View Details</div>
                     </div>
                     <div class="p-6">
                         <h3 class="text-lg font-bold text-slate-900">Coriander Powder (ধনিয়া গুঁড়া)</h3>
@@ -162,18 +163,19 @@
                     </div>
                 </div>
                 <div class="p-6 pt-0">
-                    <button onclick="selectProduct('Coriander Powder (ধনিয়া গুঁড়া) - ৳180', 180)" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
-                        Order Now (COD)
+                    <button onclick="event.stopPropagation(); toggleProductSelection('product3', 180)" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                        Select for Order
                     </button>
                 </div>
             </div>
 
             <!-- Product 4: Turmeric Powder -->
-            <div class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+            <div class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group cursor-pointer" onclick="openModal('Turmeric Powder (হলুদ গুঁড়া)', 200, 'turmeric.jpg', ['turmeric.jpg', 'turmeric-back.jpg', 'turmeric-jar.jpg'], 'Extracted from pure raw turmeric roots (হলুদ). Packed with natural curcumin content, providing vibrant color, earthy flavor, and immense health benefits.')">
                 <div>
                     <div class="h-64 bg-slate-100 overflow-hidden relative">
                         <img src="turmeric.jpg" alt="Turmeric Powder" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Turmeric+Powder'">
                         <span class="absolute top-3 left-3 bg-amber-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Pure</span>
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white font-semibold text-sm">🔍 View Details</div>
                     </div>
                     <div class="p-6">
                         <h3 class="text-lg font-bold text-slate-900">Turmeric Powder (হলুদ গুঁড়া)</h3>
@@ -185,8 +187,8 @@
                     </div>
                 </div>
                 <div class="p-6 pt-0">
-                    <button onclick="selectProduct('Turmeric Powder (হলুদ গুঁড়া) - ৳200', 200)" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
-                        Order Now (COD)
+                    <button onclick="event.stopPropagation(); toggleProductSelection('product4', 200)" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                        Select for Order
                     </button>
                 </div>
             </div>
@@ -214,64 +216,165 @@
                 </div>
                 <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center">
                     <div class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl font-bold">🚚</div>
-                    <h3 class="text-lg font-bold text-slate-900">Cash on Delivery</h3>
-                    <p class="text-slate-600 text-sm mt-2 leading-relaxed">Inspect your order comfortably at your home door step before making payment.</p>
+                    <h3 class="text-lg font-bold text-slate-900">Smart Location Shipping</h3>
+                    <p class="text-slate-600 text-sm mt-2 leading-relaxed">Automatic delivery calculation based on whether you are inside or outside Dhaka.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Quick Checkout Form Section (Integrated with Web3Forms) -->
+    <!-- Multi-Item Checkout Form Section (Integrated with Web3Forms & Zone Shipping) -->
     <section id="order" class="py-20 bg-slate-100">
         <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-white rounded-3xl shadow-xl border border-slate-200 p-8 sm:p-12 relative overflow-hidden">
                 <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-red-600 to-amber-600"></div>
                 
                 <div class="text-center mb-8">
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Cash on Delivery Order</h2>
-                    <p class="text-slate-500 text-sm mt-1">Fill out your shipping information below to complete order.</p>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Cash on Delivery Checkout</h2>
+                    <p class="text-slate-500 text-sm mt-1">Select your items and delivery location. Totals calculate automatically!</p>
                 </div>
 
-                <!-- Web3Forms Form Configuration with Your Access Key -->
-                <form action="https://api.web3forms.com/submit" method="POST" id="orderForm" class="space-y-6">
-                    <!-- Your Web3Forms Access Key -->
+                <form action="https://api.web3forms.com/submit" method="POST" id="orderForm" onsubmit="prepareOrderSubmission()" class="space-y-6">
                     <input type="hidden" name="apikey" value="e2450de3-cd40-4a8e-a0b1-9d41d3c7afe7">
-                    <input type="hidden" name="subject" value="New Order Received - Hotspy Spices!">
+                    <input type="hidden" name="subject" value="New Multi-Item Order - Hotspy Spices!">
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    
+                    <!-- Hidden field where final summary is sent -->
+                    <input type="hidden" name="Order_Summary" id="finalOrderSummary">
 
                     <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-2">Selected Product & Size</label>
-                        <select id="productSelect" name="Selected_Product" class="w-full px-4 py-3.5 rounded-2xl border border-slate-300 bg-white focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition text-sm font-medium" required>
-                            <option value="Chilli Powder (মরিচ গুঁড়া) - ৳220">Chilli Powder (মরিচ গুঁড়া) - ৳220</option>
-                            <option value="Cumin Powder (জিরা গুঁড়া) - ৳250">Cumin Powder (জিরা গুঁড়া) - ৳250</option>
-                            <option value="Coriander Powder (ধনিয়া গুঁড়া) - ৳180">Coriander Powder (ধনিয়া গুঁড়া) - ৳180</option>
-                            <option value="Turmeric Powder (হলুদ গুঁড়া) - ৳200">Turmeric Powder (হলুদ গুঁড়া) - ৳200</option>
+                        <label class="block text-sm font-semibold text-slate-700 mb-3">Select Products (Check any or all):</label>
+                        <div class="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                            
+                            <!-- Checkbox 1 -->
+                            <div class="flex items-center justify-between p-3 bg-white rounded-xl border border-slate-100 shadow-sm">
+                                <label class="flex items-center space-x-3 cursor-pointer flex-1">
+                                    <input type="checkbox" id="product1" value="Chilli Powder (মরিচ গুঁড়া)" data-price="220" onchange="calculateTotal()" class="w-5 h-5 text-red-600 rounded focus:ring-red-500">
+                                    <span class="text-sm font-bold text-slate-800">Chilli Powder (মরিচ গুঁড়া) - ৳220</span>
+                                </label>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-xs text-slate-500">Qty:</span>
+                                    <input type="number" id="qty1" value="1" min="1" max="10" onchange="calculateTotal()" class="w-14 px-2 py-1 text-center border border-slate-300 rounded-lg text-sm font-medium">
+                                </div>
+                            </div>
+
+                            <!-- Checkbox 2 -->
+                            <div class="flex items-center justify-between p-3 bg-white rounded-xl border border-slate-100 shadow-sm">
+                                <label class="flex items-center space-x-3 cursor-pointer flex-1">
+                                    <input type="checkbox" id="product2" value="Cumin Powder (জিরা গুঁড়া)" data-price="250" onchange="calculateTotal()" class="w-5 h-5 text-red-600 rounded focus:ring-red-500">
+                                    <span class="text-sm font-bold text-slate-800">Cumin Powder (জিরা গুঁড়া) - ৳250</span>
+                                </label>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-xs text-slate-500">Qty:</span>
+                                    <input type="number" id="qty2" value="1" min="1" max="10" onchange="calculateTotal()" class="w-14 px-2 py-1 text-center border border-slate-300 rounded-lg text-sm font-medium">
+                                </div>
+                            </div>
+
+                            <!-- Checkbox 3 -->
+                            <div class="flex items-center justify-between p-3 bg-white rounded-xl border border-slate-100 shadow-sm">
+                                <label class="flex items-center space-x-3 cursor-pointer flex-1">
+                                    <input type="checkbox" id="product3" value="Coriander Powder (ধনিয়া গুঁড়া)" data-price="180" onchange="calculateTotal()" class="w-5 h-5 text-red-600 rounded focus:ring-red-500">
+                                    <span class="text-sm font-bold text-slate-800">Coriander Powder (ধনিয়া গুঁড়া) - ৳180</span>
+                                </label>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-xs text-slate-500">Qty:</span>
+                                    <input type="number" id="qty3" value="1" min="1" max="10" onchange="calculateTotal()" class="w-14 px-2 py-1 text-center border border-slate-300 rounded-lg text-sm font-medium">
+                                </div>
+                            </div>
+
+                            <!-- Checkbox 4 -->
+                            <div class="flex items-center justify-between p-3 bg-white rounded-xl border border-slate-100 shadow-sm">
+                                <label class="flex items-center space-x-3 cursor-pointer flex-1">
+                                    <input type="checkbox" id="product4" value="Turmeric Powder (হলুদ গুঁড়া)" data-price="200" onchange="calculateTotal()" class="w-5 h-5 text-red-600 rounded focus:ring-red-500">
+                                    <span class="text-sm font-bold text-slate-800">Turmeric Powder (হলুদ গুঁড়া) - ৳200</span>
+                                </label>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-xs text-slate-500">Qty:</span>
+                                    <input type="number" id="qty4" value="1" min="1" max="10" onchange="calculateTotal()" class="w-14 px-2 py-1 text-center border border-slate-300 rounded-lg text-sm font-medium">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Delivery Zone Selection -->
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Delivery Location / Zone</label>
+                        <select id="deliveryZone" name="Delivery_Zone" onchange="calculateTotal()" class="w-full px-4 py-3.5 rounded-2xl border border-slate-300 bg-white focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition text-sm font-medium" required>
+                            <option value="Inside Dhaka (৳100)">Inside Dhaka (৳100 Delivery Charge)</option>
+                            <option value="Outside Dhaka (৳130)">Outside Dhaka (৳130 Delivery Charge)</option>
                         </select>
+                    </div>
+
+                    <!-- Bill Breakdown Box -->
+                    <div class="bg-red-50 border border-red-100 p-4 rounded-2xl text-sm space-y-2">
+                        <div class="flex justify-between text-slate-600">
+                            <span>Subtotal:</span>
+                            <span id="subtotalDisplay" class="font-semibold text-slate-900">৳ 0</span>
+                        </div>
+                        <div class="flex justify-between text-slate-600">
+                            <span>Delivery Charge:</span>
+                            <span class="font-semibold text-slate-900">৳ <span id="deliveryFee">100</span></span>
+                        </div>
+                        <div class="border-t border-red-200 pt-2 flex justify-between text-base font-extrabold text-red-600">
+                            <span>Total Payable (COD):</span>
+                            <span id="totalDisplay">৳ 100</span>
+                        </div>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-sm font-semibold text-slate-700 mb-2">Your Full Name</label>
-                            <input type="text" name="Customer_Name" id="fullName" placeholder="e.g. Rahim Ahmed" class="w-full px-4 py-3.5 rounded-2xl border border-slate-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition text-sm" required>
+                            <input type="text" name="Customer_Name" placeholder="e.g. Rahim Ahmed" class="w-full px-4 py-3.5 rounded-2xl border border-slate-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition text-sm" required>
                         </div>
                         <div>
                             <label class="block text-sm font-semibold text-slate-700 mb-2">Phone Number</label>
-                            <input type="tel" name="Phone_Number" id="phoneNumber" placeholder="e.g. 017XXXXXXXX" class="w-full px-4 py-3.5 rounded-2xl border border-slate-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition text-sm" required>
+                            <input type="tel" name="Phone_Number" placeholder="e.g. 017XXXXXXXX" class="w-full px-4 py-3.5 rounded-2xl border border-slate-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition text-sm" required>
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-2">Delivery Address (House, Area, City)</label>
-                        <textarea name="Delivery_Address" id="address" rows="3" placeholder="e.g. Station Road, Kushtia" class="w-full px-4 py-3.5 rounded-2xl border border-slate-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition text-sm" required></textarea>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Detailed Delivery Address (House, Area, City)</label>
+                        <textarea name="Delivery_Address" rows="3" placeholder="e.g. Uttara Sector 7, Dhaka" class="w-full px-4 py-3.5 rounded-2xl border border-slate-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition text-sm" required></textarea>
                     </div>
 
-                    <button type="submit" onclick="trackPurchase()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-2xl shadow-xl shadow-red-600/30 transition text-base tracking-wide">
+                    <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-2xl shadow-xl shadow-red-600/30 transition text-base tracking-wide">
                         Confirm Order (Cash on Delivery)
                     </button>
                 </form>
             </div>
         </div>
     </section>
+
+    <!-- Product Detail Popup Modal -->
+    <div id="productModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl relative animate-in fade-in zoom-in duration-200">
+            <button onclick="closeModal()" class="absolute top-4 right-4 z-10 bg-slate-100 hover:bg-slate-200 text-slate-700 w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg transition">✕</button>
+            
+            <div class="p-6">
+                <!-- Main Modal Image Preview -->
+                <div class="h-64 sm:h-72 bg-slate-100 rounded-2xl overflow-hidden mb-4">
+                    <img id="modalMainImg" src="" alt="Product Preview" class="w-full h-full object-cover">
+                </div>
+                
+                <!-- Thumbnails Gallery Row -->
+                <div id="modalGallery" class="flex gap-2 mb-4 overflow-x-auto pb-1">
+                    <!-- Dynamic thumbs inserted via JS -->
+                </div>
+
+                <h3 id="modalTitle" class="text-xl font-bold text-slate-900"></h3>
+                <div class="flex items-center space-x-3 my-2">
+                    <span id="modalPrice" class="text-2xl font-extrabold text-red-600"></span>
+                    <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-2.5 py-1 rounded-full">In Stock & Fresh</span>
+                </div>
+                <p id="modalDesc" class="text-slate-600 text-sm leading-relaxed mb-6"></p>
+
+                <button id="modalSelectBtn" onclick="" class="w-full bg-red-600 hover:bg-red-700 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                    Select This Item for Order
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-slate-950 text-slate-400 py-12">
@@ -282,31 +385,111 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Product Selection & Tracking -->
+    <!-- JavaScript Handling Dynamic Location Fees & Order Calculations -->
     <script>
-        function selectProduct(productName, price) {
-            const select = document.getElementById('productSelect');
-            for (let i = 0; i < select.options.length; i++) {
-                if (select.options[i].text.includes(productName.split(' - ')[0])) {
-                    select.selectedIndex = i;
-                    break;
+        function calculateTotal() {
+            let subtotal = 0;
+            const productIds = ['product1', 'product2', 'product3', 'product4'];
+            
+            productIds.forEach((id, index) => {
+                const checkbox = document.getElementById(id);
+                const qty = parseInt(document.getElementById('qty' + (index + 1)).value) || 1;
+                if (checkbox.checked) {
+                    const price = parseFloat(checkbox.getAttribute('data-price'));
+                    subtotal += price * qty;
                 }
+            });
+
+            // Get dynamic delivery fee based on dropdown selection
+            const zoneSelect = document.getElementById('deliveryZone');
+            let deliveryFee = 100; // default inside dhaka
+            if (zoneSelect && zoneSelect.value.includes('Outside Dhaka')) {
+                deliveryFee = 130;
             }
-            // Trigger Meta Pixel AddToCart event
-            if (typeof fbq === 'function') {
-                fbq('track', 'AddToCart', {content_name: productName, value: price, currency: 'BDT'});
-            }
-            // Smooth scroll to order form
+
+            const total = subtotal > 0 ? subtotal + deliveryFee : 0;
+            
+            document.getElementById('subtotalDisplay').innerText = '৳ ' + subtotal;
+            document.getElementById('deliveryFee').innerText = subtotal > 0 ? deliveryFee : 0;
+            document.getElementById('totalDisplay').innerText = '৳ ' + total;
+        }
+
+        function toggleProductSelection(productId, price) {
+            const checkbox = document.getElementById(productId);
+            checkbox.checked = !checkbox.checked;
+            calculateTotal();
+            closeModal();
             document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
         }
 
-        function trackPurchase() {
-            const product = document.getElementById('productSelect').value;
-            // Trigger Meta Pixel Purchase event upon order submission click
+        function prepareOrderSubmission() {
+            let summaryText = "";
+            let subtotal = 0;
+            const productIds = [
+                {cb: 'product1', qty: 'qty1', name: 'Chilli Powder (মরিচ গুঁড়া)'},
+                {cb: 'product2', qty: 'qty2', name: 'Cumin Powder (জিরা গুঁড়া)'},
+                {cb: 'product3', qty: 'qty3', name: 'Coriander Powder (ধনিয়া গুঁড়া)'},
+                {cb: 'product4', qty: 'qty4', name: 'Turmeric Powder (হলুদ গুঁড়া)'}
+            ];
+
+            productIds.forEach(item => {
+                const cb = document.getElementById(item.cb);
+                if (cb.checked) {
+                    const qty = document.getElementById(item.qty).value;
+                    const price = parseInt(cb.getAttribute('data-price'));
+                    subtotal += price * qty;
+                    summaryText += `${item.name} (Qty: ${qty}) | `;
+                }
+            });
+
+            const zoneSelect = document.getElementById('deliveryZone').value;
+            const deliveryFee = zoneSelect.includes('Outside Dhaka') ? 130 : 100;
+            const grandTotal = subtotal + deliveryFee;
+
+            summaryText += `Zone: ${zoneSelect} | Subtotal: ৳${subtotal} | Delivery: ৳${deliveryFee} | Total COD: ৳${grandTotal}`;
+            
+            document.getElementById('finalOrderSummary').value = summaryText;
+
             if (typeof fbq === 'function') {
-                fbq('track', 'Purchase', {content_name: product, currency: 'BDT'});
+                fbq('track', 'Purchase', {value: grandTotal, currency: 'BDT'});
             }
         }
+
+        // Modal Functions
+        function openModal(name, price, mainImg, galleryImages, description) {
+            document.getElementById('modalTitle').innerText = name;
+            document.getElementById('modalPrice').innerText = '৳ ' + price;
+            document.getElementById('modalMainImg').src = mainImg;
+            document.getElementById('modalDesc').innerText = description;
+            
+            let prodId = '';
+            if(name.includes('Chilli')) prodId = 'product1';
+            else if(name.includes('Cumin')) prodId = 'product2';
+            else if(name.includes('Coriander')) prodId = 'product3';
+            else if(name.includes('Turmeric')) prodId = 'product4';
+
+            document.getElementById('modalSelectBtn').setAttribute('onclick', `toggleProductSelection('${prodId}', ${price})`);
+
+            const galleryContainer = document.getElementById('modalGallery');
+            galleryContainer.innerHTML = '';
+            galleryImages.forEach(imgSrc => {
+                galleryContainer.innerHTML += `
+                    <div class="w-16 h-16 rounded-xl overflow-hidden border-2 border-slate-200 cursor-pointer hover:border-red-600 flex-shrink-0" onclick="document.getElementById('modalMainImg').src='${imgSrc}'">
+                        <img src="${imgSrc}" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150?text=Hotspy'">
+                    </div>`;
+            });
+
+            document.getElementById('productModal').classList.remove('hidden');
+            document.getElementById('productModal').classList.add('flex');
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').classList.remove('flex');
+            document.getElementById('productModal').classList.add('hidden');
+        }
+
+        // Run calculation once on load
+        calculateTotal();
     </script>
 </body>
 </html>
