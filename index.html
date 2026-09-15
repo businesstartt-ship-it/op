@@ -41,7 +41,13 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
                 <a href="#" class="cursor-pointer flex items-center">
-                    <img src="logo.jpg" alt="Hotspy Logo" class="h-10 sm:h-12 w-auto object-contain" onerror="this.src='https://via.placeholder.com/150x50?text=Hotspy'">
+                    <!-- LOGO: Make sure logo.jpg is in the same folder, or change src name -->
+                    <img src="logo.jpg" alt="Hotspy Logo" class="h-10 sm:h-12 w-auto object-contain" onerror="this.onerror=null; this.style.display='none'; document.getElementById('fallback-logo').style.display='flex';">
+                    <!-- Fallback text logo if image is missing -->
+                    <div id="fallback-logo" style="display:none;" class="items-center space-x-2">
+                        <span class="bg-red-600 text-white font-black text-xl px-3 py-1.5 rounded-xl shadow-md">🔥</span>
+                        <span class="text-2xl font-black tracking-wider text-slate-900">HOT<span class="text-red-600">SPY</span></span>
+                    </div>
                 </a>
             </div>
             <nav class="hidden md:flex space-x-8 text-sm font-semibold text-slate-600">
@@ -82,7 +88,7 @@
             </div>
             <div class="flex justify-center">
                 <div class="relative w-72 sm:w-80 h-96 bg-gradient-to-t from-red-600/30 to-transparent rounded-3xl p-4 border border-white/10 shadow-2xl backdrop-blur-md flex items-center justify-center">
-                    <img src="header.jpg" alt="Hotspy Combo Pack" class="max-h-full max-w-full object-contain drop-shadow-2xl rounded-2xl" onerror="this.src='https://via.placeholder.com/400x500?text=Hotspy+Combo+Pack'">
+                    <img src="chilli.jpg" alt="Hotspy Combo Pack" class="max-h-full max-w-full object-contain drop-shadow-2xl rounded-2xl" onerror="this.src='https://via.placeholder.com/400x500?text=Hotspy+Combo+Pack'">
                     <div class="absolute -bottom-4 -right-4 bg-white text-slate-900 font-bold px-4 py-3 rounded-2xl shadow-xl border border-slate-100 text-sm">
                         🎁 Save More with Combo
                     </div>
@@ -102,11 +108,12 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             
             <!-- FEATURED: 4 Spice Combo Pack (Product 8) -->
-            <div class="bg-gradient-to-b from-red-50 to-white rounded-3xl shadow-md hover:shadow-xl border-2 border-red-500 overflow-hidden flex flex-col justify-between transition duration-300 group">
+            <div id="card-product8" class="bg-gradient-to-b from-red-50 to-white rounded-3xl shadow-md hover:shadow-xl border-2 border-red-500 overflow-hidden flex flex-col justify-between transition duration-300 group">
                 <div>
-                    <div onclick="openModal('4 Spice Combo Pack (4 pcs bundle)', 750, 'chilli.jpg', ['chilli.jpg', 'cumin.jpg', 'coriander.jpg', 'turmeric.jpg'], 'Our ultimate kitchen bundle! Includes Chilli Powder, Cumin Powder, Coriander Powder, and Turmeric Powder in one discounted package. 100% pure and unadulterated.')" class="h-64 bg-red-100/50 p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                    <div onclick="openModal(8, '4 Spice Combo Pack (4 pcs bundle)', 750, 'chilli.jpg', ['chilli.jpg', 'cumin.jpg', 'coriander.jpg', 'turmeric.jpg'], 'Our ultimate kitchen bundle! Includes Chilli Powder, Cumin Powder, Coriander Powder, and Turmeric Powder in one discounted package. 100% pure and unadulterated.')" class="h-64 bg-red-100/50 p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
                         <img src="chilli.jpg" alt="4 Spice Combo Pack" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=4+Spice+Combo'">
                         <span class="absolute top-3 left-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md animate-pulse">🔥 Special Bundle</span>
+                        <div id="stock-badge-8" class="absolute top-3 right-3 hidden"></div>
                         <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Combo Details</div>
                     </div>
                     <div class="p-6">
@@ -132,18 +139,19 @@
                     </div>
                 </div>
                 <div class="p-6 pt-0">
-                    <button onclick="selectProductFromCard('product8')" class="w-full bg-red-600 hover:bg-red-700 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-lg shadow-red-600/30">
+                    <button id="btn-select-8" onclick="selectProductFromCard('product8')" class="w-full bg-red-600 hover:bg-red-700 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-lg shadow-red-600/30">
                         Select Combo for Order
                     </button>
                 </div>
             </div>
 
             <!-- Product 1: Chilli Powder -->
-            <div class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+            <div id="card-product1" class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
                 <div>
-                    <div onclick="openModal('Chilli Powder (মরিচ গুঁড়া)', 220, 'chilli.jpg', ['chilli.jpg', 'chilli-back.jpg', 'hotspy-jar.jpg'], 'Our premium Chilli Powder is sourced from selected high-grade red chillies. Carefully cleaned, sun-dried, and stone-ground to retain its natural fiery heat and rich red color.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                    <div onclick="openModal(1, 'Chilli Powder (মরিচ গুঁড়া)', 220, 'chilli.jpg', ['chilli.jpg', 'chilli-back.jpg', 'hotspy-jar.jpg'], 'Our premium Chilli Powder is sourced from selected high-grade red chillies. Carefully cleaned, sun-dried, and stone-ground to retain its natural fiery heat and rich red color.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
                         <img src="chilli.jpg" alt="Chilli Powder" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Chilli+Powder'">
                         <span class="absolute top-3 left-3 bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Bestseller</span>
+                        <div id="stock-badge-1" class="absolute top-3 right-3 hidden"></div>
                         <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Details</div>
                     </div>
                     <div class="p-6">
@@ -170,17 +178,18 @@
                     </div>
                 </div>
                 <div class="p-6 pt-0">
-                    <button onclick="selectProductFromCard('product1')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                    <button id="btn-select-1" onclick="selectProductFromCard('product1')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
                         Select for Order
                     </button>
                 </div>
             </div>
 
             <!-- Product 2: Cumin Powder -->
-            <div class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+            <div id="card-product2" class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
                 <div>
-                    <div onclick="openModal('Cumin Powder (জিরা গুঁড়া)', 250, 'cumin.jpg', ['cumin.jpg', 'cumin-back.jpg', 'hotspy-jar.jpg'], 'Finely milled from top-tier aromatic cumin seeds. Adds an earthy, warm, and deeply aromatic profile to curries and marinades.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                    <div onclick="openModal(2, 'Cumin Powder (জিরা গুঁড়া)', 250, 'cumin.jpg', ['cumin.jpg', 'cumin-back.jpg', 'hotspy-jar.jpg'], 'Finely milled from top-tier aromatic cumin seeds. Adds an earthy, warm, and deeply aromatic profile to curries and marinades.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
                         <img src="cumin.jpg" alt="Cumin Powder" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Cumin+Powder'">
+                        <div id="stock-badge-2" class="absolute top-3 right-3 hidden"></div>
                         <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Details</div>
                     </div>
                     <div class="p-6">
@@ -207,17 +216,18 @@
                     </div>
                 </div>
                 <div class="p-6 pt-0">
-                    <button onclick="selectProductFromCard('product2')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                    <button id="btn-select-2" onclick="selectProductFromCard('product2')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
                         Select for Order
                     </button>
                 </div>
             </div>
 
             <!-- Product 3: Coriander Powder -->
-            <div class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+            <div id="card-product3" class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
                 <div>
-                    <div onclick="openModal('Coriander Powder (ধনিয়া গুঁড়া)', 180, 'coriander.jpg', ['coriander.jpg', 'coriander-back.jpg', 'hotspy-jar.jpg'], 'Made from premium dried coriander seeds. Perfectly ground to deliver a mild, citrusy, and refreshing herbal scent.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                    <div onclick="openModal(3, 'Coriander Powder (ধনিয়া গুঁড়া)', 180, 'coriander.jpg', ['coriander.jpg', 'coriander-back.jpg', 'hotspy-jar.jpg'], 'Made from premium dried coriander seeds. Perfectly ground to deliver a mild, citrusy, and refreshing herbal scent.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
                         <img src="coriander.jpg" alt="Coriander Powder" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Coriander+Powder'">
+                        <div id="stock-badge-3" class="absolute top-3 right-3 hidden"></div>
                         <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Details</div>
                     </div>
                     <div class="p-6">
@@ -244,17 +254,18 @@
                     </div>
                 </div>
                 <div class="p-6 pt-0">
-                    <button onclick="selectProductFromCard('product3')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                    <button id="btn-select-3" onclick="selectProductFromCard('product3')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
                         Select for Order
                     </button>
                 </div>
             </div>
 
             <!-- Product 4: Turmeric Powder -->
-            <div class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+            <div id="card-product4" class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
                 <div>
-                    <div onclick="openModal('Turmeric Powder (হলুদ গুঁড়া)', 200, 'turmeric.jpg', ['turmeric.jpg', 'turmeric-back.jpg', 'hotspy-jar.jpg'], 'Extracted from pure raw turmeric roots. Packed with natural curcumin content, providing vibrant color and immense health benefits.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                    <div onclick="openModal(4, 'Turmeric Powder (হলুদ গুঁড়া)', 200, 'turmeric.jpg', ['turmeric.jpg', 'turmeric-back.jpg', 'hotspy-jar.jpg'], 'Extracted from pure raw turmeric roots. Packed with natural curcumin content, providing vibrant color and immense health benefits.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
                         <img src="turmeric.jpg" alt="Turmeric Powder" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Turmeric+Powder'">
+                        <div id="stock-badge-4" class="absolute top-3 right-3 hidden"></div>
                         <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Details</div>
                     </div>
                     <div class="p-6">
@@ -281,17 +292,18 @@
                     </div>
                 </div>
                 <div class="p-6 pt-0">
-                    <button onclick="selectProductFromCard('product4')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                    <button id="btn-select-4" onclick="selectProductFromCard('product4')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
                         Select for Order
                     </button>
                 </div>
             </div>
 
             <!-- Product 5: Black Pepper Powder -->
-            <div class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+            <div id="card-product5" class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
                 <div>
-                    <div onclick="openModal('Black Pepper Powder (গোলমরিচ গুঁড়া)', 290, 'pepper.jpg', ['pepper.jpg', 'hotspy-jar.jpg', 'pepper-jar.jpg'], 'Hand-picked premium black peppercorns, cleanly ground to offer a sharp, pungent bite and robust fragrance.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                    <div onclick="openModal(5, 'Black Pepper Powder (গোলমরিচ গুঁড়া)', 290, 'pepper.jpg', ['pepper.jpg', 'hotspy-jar.jpg', 'pepper-jar.jpg'], 'Hand-picked premium black peppercorns, cleanly ground to offer a sharp, pungent bite and robust fragrance.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
                         <img src="pepper.jpg" alt="Black Pepper Powder" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Black+Pepper'">
+                        <div id="stock-badge-5" class="absolute top-3 right-3 hidden"></div>
                         <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Details</div>
                     </div>
                     <div class="p-6">
@@ -318,17 +330,18 @@
                     </div>
                 </div>
                 <div class="p-6 pt-0">
-                    <button onclick="selectProductFromCard('product5')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                    <button id="btn-select-5" onclick="selectProductFromCard('product5')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
                         Select for Order
                     </button>
                 </div>
             </div>
 
             <!-- Product 6: Ginger Powder -->
-            <div class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+            <div id="card-product6" class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
                 <div>
-                    <div onclick="openModal('Ginger Powder (আদা গুঁড়া)', 270, 'ginger.jpg', ['ginger.jpg', 'ginger-back.jpg', 'hotspy-jar.jpg'], 'Made from dried prime ginger roots. Provides a sharp, spicy, and warming touch ideal for tea, baking, and curries.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                    <div onclick="openModal(6, 'Ginger Powder (আদা গুঁড়া)', 270, 'ginger.jpg', ['ginger.jpg', 'ginger-back.jpg', 'hotspy-jar.jpg'], 'Made from dried prime ginger roots. Provides a sharp, spicy, and warming touch ideal for tea, baking, and curries.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
                         <img src="ginger.jpg" alt="Ginger Powder" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Ginger+Powder'">
+                        <div id="stock-badge-6" class="absolute top-3 right-3 hidden"></div>
                         <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Details</div>
                     </div>
                     <div class="p-6">
@@ -355,17 +368,18 @@
                     </div>
                 </div>
                 <div class="p-6 pt-0">
-                    <button onclick="selectProductFromCard('product6')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                    <button id="btn-select-6" onclick="selectProductFromCard('product6')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
                         Select for Order
                     </button>
                 </div>
             </div>
 
             <!-- Product 7: Garam Masala -->
-            <div class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+            <div id="card-product7" class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
                 <div>
-                    <div onclick="openModal('Special Garam Masala (গরম মসলা গুঁড়া)', 320, 'masala.jpg', ['masala.jpg', 'hotspy-jar.jpg', 'masala-jar.jpg'], 'A delicate blend of premium whole spices including cardamom, cinnamon, and cloves. Toast-ground to give your dishes an unforgettable scent.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                    <div onclick="openModal(7, 'Special Garam Masala (গরম মসলা গুঁড়া)', 320, 'masala.jpg', ['masala.jpg', 'hotspy-jar.jpg', 'masala-jar.jpg'], 'A delicate blend of premium whole spices including cardamom, cinnamon, and cloves. Toast-ground to give your dishes an unforgettable scent.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
                         <img src="masala.jpg" alt="Garam Masala" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Garam+Masala'">
+                        <div id="stock-badge-7" class="absolute top-3 right-3 hidden"></div>
                         <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Details</div>
                     </div>
                     <div class="p-6">
@@ -392,7 +406,7 @@
                     </div>
                 </div>
                 <div class="p-6 pt-0">
-                    <button onclick="selectProductFromCard('product7')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                    <button id="btn-select-7" onclick="selectProductFromCard('product7')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
                         Select for Order
                     </button>
                 </div>
@@ -453,7 +467,7 @@
                         <!-- Toggle Button to show/hide full product list -->
                         <div class="border border-slate-300 rounded-2xl overflow-hidden bg-white shadow-sm">
                             <button type="button" onclick="toggleProductDropdown()" class="w-full px-4 py-3.5 flex items-center justify-between bg-slate-50 hover:bg-slate-100 text-slate-800 text-sm font-bold transition">
-                                <span id="dropdownSelectedLabel" class="truncate pr-2 text-left">📦 4 Spice Combo Pack (200g x 4) x 1</span>
+                                <span id="dropdownSelectedLabel" class="truncate pr-2 text-left">📦 Select in-stock products above</span>
                                 <div class="flex items-center space-x-1.5 shrink-0">
                                     <span class="text-xs bg-red-100 text-red-600 px-2.5 py-1 rounded-full font-bold">Change / Select</span>
                                     <span id="dropdownArrow" class="text-slate-500 transform transition duration-300">▼</span>
@@ -463,11 +477,11 @@
                             <!-- Hidden/Collapsible Product Checklist Container -->
                             <div id="productDropdownContainer" class="hidden max-h-72 overflow-y-auto p-4 space-y-3 border-t border-slate-200 bg-white">
                                 
-                                <!-- 8. 4 Spice Combo Pack (Pre-checked by default) -->
-                                <div class="flex items-center justify-between p-2.5 bg-red-50/60 rounded-xl border border-red-200 shadow-sm">
+                                <!-- 8. 4 Spice Combo Pack -->
+                                <div id="dropdown-row-8" class="flex items-center justify-between p-2.5 bg-red-50/60 rounded-xl border border-red-200 shadow-sm">
                                     <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
-                                        <input type="checkbox" id="product8" value="4 Spice Combo Pack (4 pcs bundle)" data-base-price="750" checked onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
-                                        <span class="text-xs font-bold text-red-900">🔥 4 Spice Combo Pack</span>
+                                        <input type="checkbox" id="product8" value="4 Spice Combo Pack (4 pcs bundle)" data-base-price="750" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
+                                        <span id="dropdown-text-8" class="text-xs font-bold text-red-900">🔥 4 Spice Combo Pack</span>
                                     </label>
                                     <div class="flex items-center space-x-2">
                                         <select id="size8" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
@@ -479,10 +493,10 @@
                                 </div>
 
                                 <!-- 1. Chilli Powder -->
-                                <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                <div id="dropdown-row-1" class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
                                     <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
                                         <input type="checkbox" id="product1" value="Chilli Powder (মরিচ গুঁড়া)" data-base-price="220" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
-                                        <span class="text-xs font-bold text-slate-800">Chilli Powder</span>
+                                        <span id="dropdown-text-1" class="text-xs font-bold text-slate-800">Chilli Powder</span>
                                     </label>
                                     <div class="flex items-center space-x-2">
                                         <select id="size1" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
@@ -495,10 +509,10 @@
                                 </div>
 
                                 <!-- 2. Cumin Powder -->
-                                <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                <div id="dropdown-row-2" class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
                                     <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
                                         <input type="checkbox" id="product2" value="Cumin Powder (জিরা গুঁড়া)" data-base-price="250" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
-                                        <span class="text-xs font-bold text-slate-800">Cumin Powder</span>
+                                        <span id="dropdown-text-2" class="text-xs font-bold text-slate-800">Cumin Powder</span>
                                     </label>
                                     <div class="flex items-center space-x-2">
                                         <select id="size2" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
@@ -511,10 +525,10 @@
                                 </div>
 
                                 <!-- 3. Coriander Powder -->
-                                <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                <div id="dropdown-row-3" class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
                                     <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
                                         <input type="checkbox" id="product3" value="Coriander Powder (ধনিয়া গুঁড়া)" data-base-price="180" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
-                                        <span class="text-xs font-bold text-slate-800">Coriander Powder</span>
+                                        <span id="dropdown-text-3" class="text-xs font-bold text-slate-800">Coriander Powder</span>
                                     </label>
                                     <div class="flex items-center space-x-2">
                                         <select id="size3" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
@@ -527,10 +541,10 @@
                                 </div>
 
                                 <!-- 4. Turmeric Powder -->
-                                <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                <div id="dropdown-row-4" class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
                                     <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
                                         <input type="checkbox" id="product4" value="Turmeric Powder (হলুদ গুঁড়া)" data-base-price="200" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
-                                        <span class="text-xs font-bold text-slate-800">Turmeric Powder</span>
+                                        <span id="dropdown-text-4" class="text-xs font-bold text-slate-800">Turmeric Powder</span>
                                     </label>
                                     <div class="flex items-center space-x-2">
                                         <select id="size4" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
@@ -543,10 +557,10 @@
                                 </div>
 
                                 <!-- 5. Black Pepper Powder -->
-                                <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                <div id="dropdown-row-5" class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
                                     <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
                                         <input type="checkbox" id="product5" value="Black Pepper Powder (গোলমরিচ গুঁড়া)" data-base-price="290" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
-                                        <span class="text-xs font-bold text-slate-800">Black Pepper</span>
+                                        <span id="dropdown-text-5" class="text-xs font-bold text-slate-800">Black Pepper</span>
                                     </label>
                                     <div class="flex items-center space-x-2">
                                         <select id="size5" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
@@ -559,10 +573,10 @@
                                 </div>
 
                                 <!-- 6. Ginger Powder -->
-                                <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                <div id="dropdown-row-6" class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
                                     <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
                                         <input type="checkbox" id="product6" value="Ginger Powder (আদা গুঁড়া)" data-base-price="270" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
-                                        <span class="text-xs font-bold text-slate-800">Ginger Powder</span>
+                                        <span id="dropdown-text-6" class="text-xs font-bold text-slate-800">Ginger Powder</span>
                                     </label>
                                     <div class="flex items-center space-x-2">
                                         <select id="size6" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
@@ -575,10 +589,10 @@
                                 </div>
 
                                 <!-- 7. Garam Masala -->
-                                <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                <div id="dropdown-row-7" class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
                                     <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
                                         <input type="checkbox" id="product7" value="Special Garam Masala (গরম মসলা গুঁড়া)" data-base-price="320" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
-                                        <span class="text-xs font-bold text-slate-800">Garam Masala</span>
+                                        <span id="dropdown-text-7" class="text-xs font-bold text-slate-800">Garam Masala</span>
                                     </label>
                                     <div class="flex items-center space-x-2">
                                         <select id="size7" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
@@ -683,9 +697,27 @@
         </div>
     </div>
 
-    <!-- JavaScript Handling Variations, Dropdowns & Pricing Logic -->
+    <!-- JavaScript Handling Stock Control, Variations & Pricing Logic -->
     <script>
-        // Short names for dropdown preview
+        /* 
+          ==================================================
+          CONTROL STOCK HERE:
+          Set any product ID to 'true' (In Stock) or 'false' (Out of Stock).
+          If set to false, users can view it in the catalog/modal 
+          but CANNOT select it or buy it!
+          ==================================================
+        */
+        const productStockStatus = {
+            1: true,  // Chilli Powder
+            2: true,  // Cumin Powder
+            3: true,  // Coriander Powder
+            4: true,  // Turmeric Powder
+            5: true,  // Black Pepper Powder
+            6: true,  // Ginger Powder
+            7: true,  // Garam Masala
+            8: true   // 4 Spice Combo Pack
+        };
+
         const productShortNames = {
             1: 'Chilli Powder',
             2: 'Cumin Powder',
@@ -697,7 +729,6 @@
             8: '4 Spice Combo'
         };
 
-        // Price mapping table for items 1-7 and combo item 8
         const priceMap = {
             1: { '100g': 130, '200g': 220, '500g': 520, 'old100': 170, 'old200': 280, 'old500': 650 },
             2: { '100g': 140, '200g': 250, '500g': 580, 'old100': 180, 'old200': 310, 'old500': 720 },
@@ -709,10 +740,52 @@
             8: { '200g': 750, '500g': 1700, 'old200': 950, 'old500': 2100 }
         };
 
-        // Change size selector function from catalog cards
+        // Initialize Stock Status visually on page load
+        function applyStockSettings() {
+            for (let i = 1; i <= 8; i++) {
+                const isAvailable = productStockStatus[i];
+                const card = document.getElementById(`card-product${i}`);
+                const selectBtn = document.getElementById(`btn-select-${i}`);
+                const stockBadge = document.getElementById(`stock-badge-${i}`);
+                const dropdownRow = document.getElementById(`dropdown-row-${i}`);
+                const checkbox = document.getElementById(`product${i}`);
+
+                if (!isAvailable) {
+                    // Update main card look
+                    if (card) {
+                        card.classList.add('opacity-75', 'grayscale-[30%]');
+                    }
+                    // Show Out of stock badge on card
+                    if (stockBadge) {
+                        stockBadge.innerHTML = `<span class="bg-red-600 text-white text-xs font-extrabold px-3 py-1 rounded-full shadow-md">🔴 Out of Stock</span>`;
+                        stockBadge.classList.remove('hidden');
+                    }
+                    // Disable card select button
+                    if (selectBtn) {
+                        selectBtn.disabled = true;
+                        selectBtn.className = "w-full bg-slate-300 text-slate-500 text-sm font-bold py-3.5 rounded-2xl cursor-not-allowed";
+                        selectBtn.innerText = "Out of Stock";
+                    }
+                    // Hide or disable from the checkout collapsible list
+                    if (dropdownRow) {
+                        dropdownRow.style.opacity = "0.5";
+                        dropdownRow.style.background = "#f1f5f9";
+                    }
+                    if (checkbox) {
+                        checkbox.checked = false;
+                        checkbox.disabled = true;
+                    }
+                    const textLabel = document.getElementById(`dropdown-text-${i}`);
+                    if (textLabel) {
+                        textLabel.innerHTML += ` <span class="text-red-600 font-bold">(Out of Stock)</span>`;
+                    }
+                }
+            }
+        }
+
         function changeSize(productNum, sizeText, price) {
+            if (!productStockStatus[productNum]) return; // Block if out of stock
             
-            // Highlight active button
             const buttons = document.querySelectorAll(`.size-btn-${productNum}`);
             buttons.forEach(btn => {
                 if(btn.textContent.includes(sizeText)) {
@@ -722,19 +795,16 @@
                 }
             });
 
-            // Update displayed price & old price
             document.getElementById(`display-price-${productNum}`).innerText = '৳ ' + price;
             document.getElementById(`display-old-price-${productNum}`).innerText = '৳ ' + priceMap[productNum]['old' + sizeText];
             
             const badgeText = productNum === 8 ? (sizeText === '200g' ? '200g x 4' : '500g x 4') : sizeText;
             document.getElementById(`display-size-badge-${productNum}`).innerText = badgeText;
 
-            // Sync with checkout form dropdown select
             document.getElementById(`size${productNum}`).value = sizeText;
             calculateTotal();
         }
 
-        // Toggle collapsible product list dropdown in checkout
         function toggleProductDropdown() {
             const container = document.getElementById('productDropdownContainer');
             const arrow = document.getElementById('dropdownArrow');
@@ -742,30 +812,31 @@
             arrow.classList.toggle('rotate-180');
         }
 
-        // Quick select product from card directly to checkout
         function selectProductFromCard(cardProductKey) {
-            // cardProductKey can be 'product1', 'product8', etc.
-            const numericId = cardProductKey.replace('product', '');
+            const num = cardProductKey.replace('product', '');
+            if (!productStockStatus[num]) {
+                alert("Sorry! This product is currently out of stock.");
+                return;
+            }
+
             const checkbox = document.getElementById(cardProductKey);
             checkbox.checked = true;
             
-            // Open checkout dropdown so user sees the item selected
             document.getElementById('productDropdownContainer').classList.remove('hidden');
             document.getElementById('dropdownArrow').classList.add('rotate-180');
             
             calculateTotal();
-            
-            // Smooth scroll down to order form
             document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Calculate Subtotal and Total with delivery charge
         function calculateTotal() {
             let subtotal = 0;
             let selectedCount = 0;
             let firstSelectedDetails = "";
 
             for (let i = 1; i <= 8; i++) {
+                if (!productStockStatus[i]) continue; // Skip out of stock items
+                
                 const chk = document.getElementById('product' + i);
                 const qtyInput = document.getElementById('qty' + i);
                 const sizeSelect = document.getElementById('size' + i);
@@ -784,7 +855,6 @@
                 }
             }
 
-            // Update dropdown header label dynamically
             let displayText = "📦 No product selected";
             if (selectedCount === 1) {
                 displayText = firstSelectedDetails;
@@ -803,12 +873,13 @@
             document.getElementById('summaryTotal').innerText = '৳ ' + (subtotal > 0 ? grandTotal : 0);
         }
 
-        // Prepare final text summary for Web3Forms submission
         function prepareOrderSubmission() {
             let summaryText = "";
             let subtotal = 0;
 
             for (let i = 1; i <= 8; i++) {
+                if (!productStockStatus[i]) continue;
+                
                 const chk = document.getElementById('product' + i);
                 if (chk && chk.checked) {
                     const name = chk.value;
@@ -834,13 +905,28 @@
             document.getElementById('finalOrderSummary').value = summaryText;
         }
 
-        // Modal Gallery Logic
-        function openModal(title, price, mainImg, galleryImages, description) {
+        function openModal(productNum, title, price, mainImg, galleryImages, description) {
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalPrice').innerText = '৳ ' + price;
             document.getElementById('modalImg').src = mainImg;
             document.getElementById('modalDesc').innerText = description;
             
+            const actionBtn = document.getElementById('modalActionBtn');
+            if (productStockStatus[productNum]) {
+                actionBtn.disabled = false;
+                actionBtn.className = "w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3.5 rounded-2xl transition shadow-md";
+                actionBtn.innerText = "Select This Product for Order";
+                actionBtn.onclick = function() {
+                    closeModal();
+                    selectProductFromCard('product' + productNum);
+                };
+            } else {
+                actionBtn.disabled = true;
+                actionBtn.className = "w-full bg-slate-300 text-slate-500 font-bold py-3.5 rounded-2xl cursor-not-allowed";
+                actionBtn.innerText = "Out of Stock (Cannot Order)";
+                actionBtn.onclick = null;
+            }
+
             const galleryContainer = document.getElementById('modalGallery');
             galleryContainer.innerHTML = '';
             
@@ -862,8 +948,1920 @@
             document.getElementById('productModal').classList.remove('flex');
         }
 
-        // Initial run on page load
         window.onload = function() {
+            applyStockSettings();
+            calculateTotal();
+        }
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotspy | Pure Spices & Real Flavor</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=function(){n.ready=!0;n.queue.push([])};
+        t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'YOUR_PIXEL_ID');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-red-600 selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-red-700 via-red-600 to-amber-600 text-white text-xs sm:text-sm text-center py-2.5 font-medium tracking-wide shadow-inner">
+        🔥 100% Pure & Farm-Fresh Spices | Cash on Delivery (COD) Available Across Bangladesh 🚚
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <a href="#" class="cursor-pointer flex items-center">
+                    <!-- LOGO: Make sure logo.jpg is in the same folder, or change src name -->
+                    <img src="logo.jpg" alt="Hotspy Logo" class="h-10 sm:h-12 w-auto object-contain" onerror="this.onerror=null; this.style.display='none'; document.getElementById('fallback-logo').style.display='flex';">
+                    <!-- Fallback text logo if image is missing -->
+                    <div id="fallback-logo" style="display:none;" class="items-center space-x-2">
+                        <span class="bg-red-600 text-white font-black text-xl px-3 py-1.5 rounded-xl shadow-md">🔥</span>
+                        <span class="text-2xl font-black tracking-wider text-slate-900">HOT<span class="text-red-600">SPY</span></span>
+                    </div>
+                </a>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-sm font-semibold text-slate-600">
+                <a href="#products" class="hover:text-red-600 transition">Our Spices</a>
+                <a href="#features" class="hover:text-red-600 transition">Why Us</a>
+                <a href="#order" class="hover:text-red-600 transition">Order Now</a>
+            </nav>
+            <div>
+                <a href="#order" class="bg-red-600 text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-red-600/20 hover:bg-red-700 transition transform hover:-translate-y-0.5">
+                    Order Fast (COD)
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-slate-950 via-zinc-900 to-red-950 text-white py-20 lg:py-28 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ef4444_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6 text-center lg:text-left">
+                <span class="inline-block bg-red-500/10 border border-red-500/30 text-red-400 text-xs sm:text-sm px-4 py-1.5 rounded-full uppercase tracking-widest font-bold">
+                    🌿 Pure Spices • Real Flavor
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                    Bring Traditional <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-amber-500">Aroma</span> to Your Kitchen
+                </h1>
+                <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+                    Experience 100% pure, unadulterated spice powders ground directly from premium farm harvests. Zero additives, zero preservatives—just authentic taste.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#products" onclick="fbq('track', 'ViewContent');" class="bg-red-600 text-white font-bold px-8 py-4 rounded-xl shadow-xl shadow-red-600/30 hover:bg-red-700 transition text-center text-base">
+                        Explore Spices & Combos
+                    </a>
+                    <a href="#order" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold px-8 py-4 rounded-xl transition text-center text-base backdrop-blur-sm">
+                        Cash on Delivery
+                    </a>
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <div class="relative w-72 sm:w-80 h-96 bg-gradient-to-t from-red-600/30 to-transparent rounded-3xl p-4 border border-white/10 shadow-2xl backdrop-blur-md flex items-center justify-center">
+                    <img src="chilli.jpg" alt="Hotspy Combo Pack" class="max-h-full max-w-full object-contain drop-shadow-2xl rounded-2xl" onerror="this.src='https://via.placeholder.com/400x500?text=Hotspy+Combo+Pack'">
+                    <div class="absolute -bottom-4 -right-4 bg-white text-slate-900 font-bold px-4 py-3 rounded-2xl shadow-xl border border-slate-100 text-sm">
+                        🎁 Save More with Combo
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products & Combo Section -->
+    <section id="products" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-red-600 font-bold tracking-wider uppercase text-xs">Our Premium Catalog</span>
+            <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl mt-2">Spices & Special Combo Packs</h2>
+            <p class="mt-3 text-slate-600 text-sm sm:text-base">Choose individual jars or pick our exclusive 4 Spice Combo Pack for maximum savings!</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <!-- FEATURED: 4 Spice Combo Pack (Product 8) -->
+            <div id="card-product8" class="bg-gradient-to-b from-red-50 to-white rounded-3xl shadow-md hover:shadow-xl border-2 border-red-500 overflow-hidden flex flex-col justify-between transition duration-300 group">
+                <div>
+                    <div onclick="openModal(8, '4 Spice Combo Pack (4 pcs bundle)', 750, 'chilli.jpg', ['chilli.jpg', 'cumin.jpg', 'coriander.jpg', 'turmeric.jpg'], 'Our ultimate kitchen bundle! Includes Chilli Powder, Cumin Powder, Coriander Powder, and Turmeric Powder in one discounted package. 100% pure and unadulterated.')" class="h-64 bg-red-100/50 p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                        <img src="chilli.jpg" alt="4 Spice Combo Pack" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=4+Spice+Combo'">
+                        <span class="absolute top-3 left-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md animate-pulse">🔥 Special Bundle</span>
+                        <div id="stock-badge-8" class="absolute top-3 right-3 hidden"></div>
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Combo Details</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900">4 Spice Combo Pack (4 pcs bundle)</h3>
+                        <p class="text-xs text-red-600 mt-1 font-bold">Includes Chilli, Cumin, Coriander & Turmeric</p>
+                        
+                        <!-- Size Variations Selector for Combo -->
+                        <div class="mt-4">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Select Combo Size:</label>
+                            <div class="grid grid-cols-2 gap-2" id="size-options-8">
+                                <button type="button" onclick="changeSize(8, '200g', 750)" class="size-btn-8 py-1.5 text-xs font-bold rounded-lg border border-red-600 bg-red-50 text-red-600 transition">4x 200g Jars</button>
+                                <button type="button" onclick="changeSize(8, '500g', 1700)" class="size-btn-8 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">4x 500g Jars</button>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-extrabold text-red-600" id="display-price-8">৳ 750</span>
+                                <span class="text-sm text-slate-400 line-through ml-1" id="display-old-price-8">৳ 950</span>
+                            </div>
+                            <span class="text-xs font-bold text-red-700 bg-red-100 px-2.5 py-1 rounded-md" id="display-size-badge-8">200g x 4</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button id="btn-select-8" onclick="selectProductFromCard('product8')" class="w-full bg-red-600 hover:bg-red-700 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-lg shadow-red-600/30">
+                        Select Combo for Order
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 1: Chilli Powder -->
+            <div id="card-product1" class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+                <div>
+                    <div onclick="openModal(1, 'Chilli Powder (মরিচ গুঁড়া)', 220, 'chilli.jpg', ['chilli.jpg', 'chilli-back.jpg', 'hotspy-jar.jpg'], 'Our premium Chilli Powder is sourced from selected high-grade red chillies. Carefully cleaned, sun-dried, and stone-ground to retain its natural fiery heat and rich red color.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                        <img src="chilli.jpg" alt="Chilli Powder" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Chilli+Powder'">
+                        <span class="absolute top-3 left-3 bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Bestseller</span>
+                        <div id="stock-badge-1" class="absolute top-3 right-3 hidden"></div>
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Details</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900">Chilli Powder (মরিচ গুঁড়া)</h3>
+                        <p class="text-xs text-slate-500 mt-1 font-medium">100% Pure • No Preservatives</p>
+                        
+                        <!-- Size Variations Selector -->
+                        <div class="mt-4">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Select Size:</label>
+                            <div class="grid grid-cols-3 gap-2" id="size-options-1">
+                                <button type="button" onclick="changeSize(1, '100g', 130)" class="size-btn-1 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">100g</button>
+                                <button type="button" onclick="changeSize(1, '200g', 220)" class="size-btn-1 py-1.5 text-xs font-bold rounded-lg border border-red-600 bg-red-50 text-red-600 transition">200g</button>
+                                <button type="button" onclick="changeSize(1, '500g', 520)" class="size-btn-1 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">500g</button>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-extrabold text-red-600" id="display-price-1">৳ 220</span>
+                                <span class="text-sm text-slate-400 line-through ml-1" id="display-old-price-1">৳ 280</span>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md" id="display-size-badge-1">200g</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button id="btn-select-1" onclick="selectProductFromCard('product1')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                        Select for Order
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 2: Cumin Powder -->
+            <div id="card-product2" class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+                <div>
+                    <div onclick="openModal(2, 'Cumin Powder (জিরা গুঁড়া)', 250, 'cumin.jpg', ['cumin.jpg', 'cumin-back.jpg', 'hotspy-jar.jpg'], 'Finely milled from top-tier aromatic cumin seeds. Adds an earthy, warm, and deeply aromatic profile to curries and marinades.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                        <img src="cumin.jpg" alt="Cumin Powder" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Cumin+Powder'">
+                        <div id="stock-badge-2" class="absolute top-3 right-3 hidden"></div>
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Details</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900">Cumin Powder (জিরা গুঁড়া)</h3>
+                        <p class="text-xs text-slate-500 mt-1 font-medium">Rich Aroma • Farm Fresh</p>
+                        
+                        <!-- Size Variations Selector -->
+                        <div class="mt-4">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Select Size:</label>
+                            <div class="grid grid-cols-3 gap-2" id="size-options-2">
+                                <button type="button" onclick="changeSize(2, '100g', 140)" class="size-btn-2 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">100g</button>
+                                <button type="button" onclick="changeSize(2, '200g', 250)" class="size-btn-2 py-1.5 text-xs font-bold rounded-lg border border-red-600 bg-red-50 text-red-600 transition">200g</button>
+                                <button type="button" onclick="changeSize(2, '500g', 580)" class="size-btn-2 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">500g</button>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-extrabold text-red-600" id="display-price-2">৳ 250</span>
+                                <span class="text-sm text-slate-400 line-through ml-1" id="display-old-price-2">৳ 310</span>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md" id="display-size-badge-2">200g</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button id="btn-select-2" onclick="selectProductFromCard('product2')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                        Select for Order
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 3: Coriander Powder -->
+            <div id="card-product3" class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+                <div>
+                    <div onclick="openModal(3, 'Coriander Powder (ধনিয়া গুঁড়া)', 180, 'coriander.jpg', ['coriander.jpg', 'coriander-back.jpg', 'hotspy-jar.jpg'], 'Made from premium dried coriander seeds. Perfectly ground to deliver a mild, citrusy, and refreshing herbal scent.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                        <img src="coriander.jpg" alt="Coriander Powder" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Coriander+Powder'">
+                        <div id="stock-badge-3" class="absolute top-3 right-3 hidden"></div>
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Details</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900">Coriander Powder (ধনিয়া গুঁড়া)</h3>
+                        <p class="text-xs text-slate-500 mt-1 font-medium">Natural Quality • Finely Ground</p>
+                        
+                        <!-- Size Variations Selector -->
+                        <div class="mt-4">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Select Size:</label>
+                            <div class="grid grid-cols-3 gap-2" id="size-options-3">
+                                <button type="button" onclick="changeSize(3, '100g', 100)" class="size-btn-3 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">100g</button>
+                                <button type="button" onclick="changeSize(3, '200g', 180)" class="size-btn-3 py-1.5 text-xs font-bold rounded-lg border border-red-600 bg-red-50 text-red-600 transition">200g</button>
+                                <button type="button" onclick="changeSize(3, '500g', 420)" class="size-btn-3 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">500g</button>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-extrabold text-red-600" id="display-price-3">৳ 180</span>
+                                <span class="text-sm text-slate-400 line-through ml-1" id="display-old-price-3">৳ 230</span>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md" id="display-size-badge-3">200g</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button id="btn-select-3" onclick="selectProductFromCard('product3')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                        Select for Order
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 4: Turmeric Powder -->
+            <div id="card-product4" class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+                <div>
+                    <div onclick="openModal(4, 'Turmeric Powder (হলুদ গুঁড়া)', 200, 'turmeric.jpg', ['turmeric.jpg', 'turmeric-back.jpg', 'hotspy-jar.jpg'], 'Extracted from pure raw turmeric roots. Packed with natural curcumin content, providing vibrant color and immense health benefits.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                        <img src="turmeric.jpg" alt="Turmeric Powder" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Turmeric+Powder'">
+                        <div id="stock-badge-4" class="absolute top-3 right-3 hidden"></div>
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Details</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900">Turmeric Powder (হলুদ গুঁড়া)</h3>
+                        <p class="text-xs text-slate-500 mt-1 font-medium">Vibrant Color • 100% Natural</p>
+                        
+                        <!-- Size Variations Selector -->
+                        <div class="mt-4">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Select Size:</label>
+                            <div class="grid grid-cols-3 gap-2" id="size-options-4">
+                                <button type="button" onclick="changeSize(4, '100g', 110)" class="size-btn-4 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">100g</button>
+                                <button type="button" onclick="changeSize(4, '200g', 200)" class="size-btn-4 py-1.5 text-xs font-bold rounded-lg border border-red-600 bg-red-50 text-red-600 transition">200g</button>
+                                <button type="button" onclick="changeSize(4, '500g', 470)" class="size-btn-4 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">500g</button>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-extrabold text-red-600" id="display-price-4">৳ 200</span>
+                                <span class="text-sm text-slate-400 line-through ml-1" id="display-old-price-4">৳ 250</span>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md" id="display-size-badge-4">200g</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button id="btn-select-4" onclick="selectProductFromCard('product4')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                        Select for Order
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 5: Black Pepper Powder -->
+            <div id="card-product5" class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+                <div>
+                    <div onclick="openModal(5, 'Black Pepper Powder (গোলমরিচ গুঁড়া)', 290, 'pepper.jpg', ['pepper.jpg', 'hotspy-jar.jpg', 'pepper-jar.jpg'], 'Hand-picked premium black peppercorns, cleanly ground to offer a sharp, pungent bite and robust fragrance.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                        <img src="pepper.jpg" alt="Black Pepper Powder" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Black+Pepper'">
+                        <div id="stock-badge-5" class="absolute top-3 right-3 hidden"></div>
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Details</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900">Black Pepper Powder (গোলমরিচ গুঁড়া)</h3>
+                        <p class="text-xs text-slate-500 mt-1 font-medium">Sharp Pungency • Premium</p>
+                        
+                        <!-- Size Variations Selector -->
+                        <div class="mt-4">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Select Size:</label>
+                            <div class="grid grid-cols-3 gap-2" id="size-options-5">
+                                <button type="button" onclick="changeSize(5, '100g', 160)" class="size-btn-5 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">100g</button>
+                                <button type="button" onclick="changeSize(5, '200g', 290)" class="size-btn-5 py-1.5 text-xs font-bold rounded-lg border border-red-600 bg-red-50 text-red-600 transition">200g</button>
+                                <button type="button" onclick="changeSize(5, '500g', 680)" class="size-btn-5 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">500g</button>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-extrabold text-red-600" id="display-price-5">৳ 290</span>
+                                <span class="text-sm text-slate-400 line-through ml-1" id="display-old-price-5">৳ 350</span>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md" id="display-size-badge-5">200g</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button id="btn-select-5" onclick="selectProductFromCard('product5')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                        Select for Order
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 6: Ginger Powder -->
+            <div id="card-product6" class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+                <div>
+                    <div onclick="openModal(6, 'Ginger Powder (আদা গুঁড়া)', 270, 'ginger.jpg', ['ginger.jpg', 'ginger-back.jpg', 'hotspy-jar.jpg'], 'Made from dried prime ginger roots. Provides a sharp, spicy, and warming touch ideal for tea, baking, and curries.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                        <img src="ginger.jpg" alt="Ginger Powder" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Ginger+Powder'">
+                        <div id="stock-badge-6" class="absolute top-3 right-3 hidden"></div>
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Details</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900">Ginger Powder (আদা গুঁড়া)</h3>
+                        <p class="text-xs text-slate-500 mt-1 font-medium">Warming & Aromatic</p>
+                        
+                        <!-- Size Variations Selector -->
+                        <div class="mt-4">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Select Size:</label>
+                            <div class="grid grid-cols-3 gap-2" id="size-options-6">
+                                <button type="button" onclick="changeSize(6, '100g', 150)" class="size-btn-6 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">100g</button>
+                                <button type="button" onclick="changeSize(6, '200g', 270)" class="size-btn-6 py-1.5 text-xs font-bold rounded-lg border border-red-600 bg-red-50 text-red-600 transition">200g</button>
+                                <button type="button" onclick="changeSize(6, '500g', 640)" class="size-btn-6 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">500g</button>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-extrabold text-red-600" id="display-price-6">৳ 270</span>
+                                <span class="text-sm text-slate-400 line-through ml-1" id="display-old-price-6">৳ 330</span>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md" id="display-size-badge-6">200g</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button id="btn-select-6" onclick="selectProductFromCard('product6')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                        Select for Order
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 7: Garam Masala -->
+            <div id="card-product7" class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+                <div>
+                    <div onclick="openModal(7, 'Special Garam Masala (গরম মসলা গুঁড়া)', 320, 'masala.jpg', ['masala.jpg', 'hotspy-jar.jpg', 'masala-jar.jpg'], 'A delicate blend of premium whole spices including cardamom, cinnamon, and cloves. Toast-ground to give your dishes an unforgettable scent.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                        <img src="masala.jpg" alt="Garam Masala" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Garam+Masala'">
+                        <div id="stock-badge-7" class="absolute top-3 right-3 hidden"></div>
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Details</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900">Special Garam Masala (গরম মসলা গুঁড়া)</h3>
+                        <p class="text-xs text-slate-500 mt-1 font-medium">Chef's Choice Blend</p>
+                        
+                        <!-- Size Variations Selector -->
+                        <div class="mt-4">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Select Size:</label>
+                            <div class="grid grid-cols-3 gap-2" id="size-options-7">
+                                <button type="button" onclick="changeSize(7, '100g', 180)" class="size-btn-7 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">100g</button>
+                                <button type="button" onclick="changeSize(7, '200g', 320)" class="size-btn-7 py-1.5 text-xs font-bold rounded-lg border border-red-600 bg-red-50 text-red-600 transition">200g</button>
+                                <button type="button" onclick="changeSize(7, '500g', 750)" class="size-btn-7 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">500g</button>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-extrabold text-red-600" id="display-price-7">৳ 320</span>
+                                <span class="text-sm text-slate-400 line-through ml-1" id="display-old-price-7">৳ 390</span>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md" id="display-size-badge-7">200g</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button id="btn-select-7" onclick="selectProductFromCard('product7')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                        Select for Order
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="features" class="bg-white py-20 border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-xl mx-auto mb-16">
+                <h2 class="text-3xl font-extrabold text-slate-900">Why Choose Hotspy?</h2>
+                <p class="text-slate-600 text-sm mt-2">We bring health and original flavor directly from trusted regional farms.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center">
+                    <div class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl font-bold">🌱</div>
+                    <h3 class="text-lg font-bold text-slate-900">100% Pure & Natural</h3>
+                    <p class="text-slate-600 text-sm mt-2 leading-relaxed">Sourced straight from farms with rigorous quality standards and hygienic packaging.</p>
+                </div>
+                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center">
+                    <div class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl font-bold">🚫</div>
+                    <h3 class="text-lg font-bold text-slate-900">Zero Preservatives</h3>
+                    <p class="text-slate-600 text-sm mt-2 leading-relaxed">No artificial colors, harmful chemicals, or fillers—just pure, unadulterated spices.</p>
+                </div>
+                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center">
+                    <div class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl font-bold">🚚</div>
+                    <h3 class="text-lg font-bold text-slate-900">Smart Location Shipping</h3>
+                    <p class="text-slate-600 text-sm mt-2 leading-relaxed">Automatic delivery calculation based on whether you are inside or outside Dhaka.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multi-Item Checkout Form Section with Collapsible Product Dropdown -->
+    <section id="order" class="py-20 bg-slate-100">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl border border-slate-200 p-8 sm:p-12 relative overflow-hidden">
+                <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-red-600 to-amber-600"></div>
+                
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Cash on Delivery Checkout</h2>
+                    <p class="text-slate-500 text-sm mt-1">Review your selected items and delivery location. Totals calculate automatically!</p>
+                </div>
+
+                <form action="https://api.web3forms.com/submit" method="POST" id="orderForm" onsubmit="prepareOrderSubmission()" class="space-y-6">
+                    <input type="hidden" name="apikey" value="e2450de3-cd40-4a8e-a0b1-9d41d3c7afe7">
+                    <input type="hidden" name="subject" value="New Multi-Item Order - Hotspy Spices!">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    
+                    <input type="hidden" name="Order_Summary" id="finalOrderSummary">
+
+                    <!-- Clean Collapsible Product Picker -->
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Selected Products for Order:</label>
+                        
+                        <!-- Toggle Button to show/hide full product list -->
+                        <div class="border border-slate-300 rounded-2xl overflow-hidden bg-white shadow-sm">
+                            <button type="button" onclick="toggleProductDropdown()" class="w-full px-4 py-3.5 flex items-center justify-between bg-slate-50 hover:bg-slate-100 text-slate-800 text-sm font-bold transition">
+                                <span id="dropdownSelectedLabel" class="truncate pr-2 text-left">📦 Select in-stock products above</span>
+                                <div class="flex items-center space-x-1.5 shrink-0">
+                                    <span class="text-xs bg-red-100 text-red-600 px-2.5 py-1 rounded-full font-bold">Change / Select</span>
+                                    <span id="dropdownArrow" class="text-slate-500 transform transition duration-300">▼</span>
+                                </div>
+                            </button>
+
+                            <!-- Hidden/Collapsible Product Checklist Container -->
+                            <div id="productDropdownContainer" class="hidden max-h-72 overflow-y-auto p-4 space-y-3 border-t border-slate-200 bg-white">
+                                
+                                <!-- 8. 4 Spice Combo Pack -->
+                                <div id="dropdown-row-8" class="flex items-center justify-between p-2.5 bg-red-50/60 rounded-xl border border-red-200 shadow-sm">
+                                    <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
+                                        <input type="checkbox" id="product8" value="4 Spice Combo Pack (4 pcs bundle)" data-base-price="750" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
+                                        <span id="dropdown-text-8" class="text-xs font-bold text-red-900">🔥 4 Spice Combo Pack</span>
+                                    </label>
+                                    <div class="flex items-center space-x-2">
+                                        <select id="size8" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
+                                            <option value="200g" selected>200g x 4 (৳750)</option>
+                                            <option value="500g">500g x 4 (৳1700)</option>
+                                        </select>
+                                        <input type="number" id="qty8" value="1" min="1" max="10" onchange="calculateTotal()" class="w-12 px-1 py-1 text-center border border-slate-300 rounded-lg text-xs font-medium">
+                                    </div>
+                                </div>
+
+                                <!-- 1. Chilli Powder -->
+                                <div id="dropdown-row-1" class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                    <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
+                                        <input type="checkbox" id="product1" value="Chilli Powder (মরিচ গুঁড়া)" data-base-price="220" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
+                                        <span id="dropdown-text-1" class="text-xs font-bold text-slate-800">Chilli Powder</span>
+                                    </label>
+                                    <div class="flex items-center space-x-2">
+                                        <select id="size1" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
+                                            <option value="100g">100g (৳130)</option>
+                                            <option value="200g" selected>200g (৳220)</option>
+                                            <option value="500g">500g (৳520)</option>
+                                        </select>
+                                        <input type="number" id="qty1" value="1" min="1" max="10" onchange="calculateTotal()" class="w-12 px-1 py-1 text-center border border-slate-300 rounded-lg text-xs font-medium">
+                                    </div>
+                                </div>
+
+                                <!-- 2. Cumin Powder -->
+                                <div id="dropdown-row-2" class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                    <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
+                                        <input type="checkbox" id="product2" value="Cumin Powder (জিরা গুঁড়া)" data-base-price="250" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
+                                        <span id="dropdown-text-2" class="text-xs font-bold text-slate-800">Cumin Powder</span>
+                                    </label>
+                                    <div class="flex items-center space-x-2">
+                                        <select id="size2" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
+                                            <option value="100g">100g (৳140)</option>
+                                            <option value="200g" selected>200g (৳250)</option>
+                                            <option value="500g">500g (৳580)</option>
+                                        </select>
+                                        <input type="number" id="qty2" value="1" min="1" max="10" onchange="calculateTotal()" class="w-12 px-1 py-1 text-center border border-slate-300 rounded-lg text-xs font-medium">
+                                    </div>
+                                </div>
+
+                                <!-- 3. Coriander Powder -->
+                                <div id="dropdown-row-3" class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                    <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
+                                        <input type="checkbox" id="product3" value="Coriander Powder (ধনিয়া গুঁড়া)" data-base-price="180" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
+                                        <span id="dropdown-text-3" class="text-xs font-bold text-slate-800">Coriander Powder</span>
+                                    </label>
+                                    <div class="flex items-center space-x-2">
+                                        <select id="size3" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
+                                            <option value="100g">100g (৳100)</option>
+                                            <option value="200g" selected>200g (৳180)</option>
+                                            <option value="500g">500g (৳420)</option>
+                                        </select>
+                                        <input type="number" id="qty3" value="1" min="1" max="10" onchange="calculateTotal()" class="w-12 px-1 py-1 text-center border border-slate-300 rounded-lg text-xs font-medium">
+                                    </div>
+                                </div>
+
+                                <!-- 4. Turmeric Powder -->
+                                <div id="dropdown-row-4" class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                    <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
+                                        <input type="checkbox" id="product4" value="Turmeric Powder (হলুদ গুঁড়া)" data-base-price="200" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
+                                        <span id="dropdown-text-4" class="text-xs font-bold text-slate-800">Turmeric Powder</span>
+                                    </label>
+                                    <div class="flex items-center space-x-2">
+                                        <select id="size4" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
+                                            <option value="100g">100g (৳110)</option>
+                                            <option value="200g" selected>200g (৳200)</option>
+                                            <option value="500g">500g (৳470)</option>
+                                        </select>
+                                        <input type="number" id="qty4" value="1" min="1" max="10" onchange="calculateTotal()" class="w-12 px-1 py-1 text-center border border-slate-300 rounded-lg text-xs font-medium">
+                                    </div>
+                                </div>
+
+                                <!-- 5. Black Pepper Powder -->
+                                <div id="dropdown-row-5" class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                    <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
+                                        <input type="checkbox" id="product5" value="Black Pepper Powder (গোলমরিচ গুঁড়া)" data-base-price="290" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
+                                        <span id="dropdown-text-5" class="text-xs font-bold text-slate-800">Black Pepper</span>
+                                    </label>
+                                    <div class="flex items-center space-x-2">
+                                        <select id="size5" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
+                                            <option value="100g">100g (৳160)</option>
+                                            <option value="200g" selected>200g (৳290)</option>
+                                            <option value="500g">500g (৳680)</option>
+                                        </select>
+                                        <input type="number" id="qty5" value="1" min="1" max="10" onchange="calculateTotal()" class="w-12 px-1 py-1 text-center border border-slate-300 rounded-lg text-xs font-medium">
+                                    </div>
+                                </div>
+
+                                <!-- 6. Ginger Powder -->
+                                <div id="dropdown-row-6" class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                    <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
+                                        <input type="checkbox" id="product6" value="Ginger Powder (আদা গুঁড়া)" data-base-price="270" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
+                                        <span id="dropdown-text-6" class="text-xs font-bold text-slate-800">Ginger Powder</span>
+                                    </label>
+                                    <div class="flex items-center space-x-2">
+                                        <select id="size6" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
+                                            <option value="100g">100g (৳150)</option>
+                                            <option value="200g" selected>200g (৳270)</option>
+                                            <option value="500g">500g (৳640)</option>
+                                        </select>
+                                        <input type="number" id="qty6" value="1" min="1" max="10" onchange="calculateTotal()" class="w-12 px-1 py-1 text-center border border-slate-300 rounded-lg text-xs font-medium">
+                                    </div>
+                                </div>
+
+                                <!-- 7. Garam Masala -->
+                                <div id="dropdown-row-7" class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                    <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
+                                        <input type="checkbox" id="product7" value="Special Garam Masala (গরম মসলা গুঁড়া)" data-base-price="320" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
+                                        <span id="dropdown-text-7" class="text-xs font-bold text-slate-800">Garam Masala</span>
+                                    </label>
+                                    <div class="flex items-center space-x-2">
+                                        <select id="size7" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
+                                            <option value="100g">100g (৳180)</option>
+                                            <option value="200g" selected>200g (৳320)</option>
+                                            <option value="500g">500g (৳750)</option>
+                                        </select>
+                                        <input type="number" id="qty7" value="1" min="1" max="10" onchange="calculateTotal()" class="w-12 px-1 py-1 text-center border border-slate-300 rounded-lg text-xs font-medium">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Location -->
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Delivery Location:</label>
+                        <select name="Delivery_Location" id="deliveryLocation" onchange="calculateTotal()" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-red-500 focus:outline-none bg-white font-medium text-sm">
+                            <option value="inside">Inside Dhaka (Delivery Charge: ৳ 70)</option>
+                            <option value="outside" selected>Outside Dhaka (Delivery Charge: ৳ 130)</option>
+                        </select>
+                    </div>
+
+                    <!-- Customer Info -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Your Name *</label>
+                            <input type="text" name="name" required placeholder="Full Name" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-red-500 focus:outline-none text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Phone Number *</label>
+                            <input type="tel" name="phone" required placeholder="01XXXXXXXXX" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-red-500 focus:outline-none text-sm">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Delivery Address *</label>
+                        <textarea name="address" rows="3" required placeholder="House/Road, Area, Thana, District" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-red-500 focus:outline-none text-sm"></textarea>
+                    </div>
+
+                    <!-- Live Bill Summary Box -->
+                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-2 text-sm">
+                        <div class="flex justify-between text-slate-600">
+                            <span>Subtotal Items:</span>
+                            <span id="summarySubtotal" class="font-bold text-slate-900">৳ 0</span>
+                        </div>
+                        <div class="flex justify-between text-slate-600">
+                            <span>Delivery Charge:</span>
+                            <span id="summaryDelivery" class="font-bold text-slate-900">৳ 130</span>
+                        </div>
+                        <div class="border-t border-slate-200 pt-2 flex justify-between text-base font-extrabold text-slate-900">
+                            <span>Total Due (COD):</span>
+                            <span id="summaryTotal" class="text-red-600">৳ 130</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-extrabold py-4 rounded-2xl shadow-xl shadow-red-600/30 transition text-base tracking-wide">
+                            Confirm Order (Cash on Delivery)
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-white py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <h3 class="text-xl font-bold tracking-wider">HOTSPY</h3>
+            <p class="text-slate-400 text-sm">Pure Spices & Real Flavor. Delivered right to your doorstep across Bangladesh.</p>
+            <p class="text-slate-600 text-xs pt-4">&copy; 2026 Hotspy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Product Details Modal with Thumbnail Gallery -->
+    <div id="productModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl animate-in fade-in zoom-in duration-200">
+            <button onclick="closeModal()" class="absolute top-4 right-4 bg-slate-100 hover:bg-red-100 text-slate-600 hover:text-red-600 w-10 h-10 rounded-full flex items-center justify-center font-bold transition">✕</button>
+            
+            <div class="space-y-4">
+                <div class="h-64 bg-slate-50 rounded-2xl p-4 flex items-center justify-center border border-slate-100 overflow-hidden">
+                    <img id="modalImg" src="" alt="Product Preview" class="max-h-full max-w-full object-contain drop-shadow-md">
+                </div>
+
+                <div id="modalGallery" class="flex items-center justify-center space-x-3 overflow-x-auto py-1"></div>
+
+                <div>
+                    <h3 id="modalTitle" class="text-xl font-extrabold text-slate-900"></h3>
+                    <p class="text-red-600 font-extrabold text-2xl mt-1" id="modalPrice"></p>
+                </div>
+                
+                <p id="modalDesc" class="text-slate-600 text-sm leading-relaxed"></p>
+
+                <div class="pt-2">
+                    <button id="modalActionBtn" onclick="" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3.5 rounded-2xl transition shadow-md">
+                        Select This Product for Order
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Handling Stock Control, Variations & Pricing Logic -->
+    <script>
+        /* 
+          ==================================================
+          CONTROL STOCK HERE:
+          Set any product ID to 'true' (In Stock) or 'false' (Out of Stock).
+          If set to false, users can view it in the catalog/modal 
+          but CANNOT select it or buy it!
+          ==================================================
+        */
+        const productStockStatus = {
+            1: true,  // Chilli Powder
+            2: true,  // Cumin Powder
+            3: true,  // Coriander Powder
+            4: true,  // Turmeric Powder
+            5: true,  // Black Pepper Powder
+            6: true,  // Ginger Powder
+            7: true,  // Garam Masala
+            8: true   // 4 Spice Combo Pack
+        };
+
+        const productShortNames = {
+            1: 'Chilli Powder',
+            2: 'Cumin Powder',
+            3: 'Coriander Powder',
+            4: 'Turmeric Powder',
+            5: 'Black Pepper',
+            6: 'Ginger Powder',
+            7: 'Garam Masala',
+            8: '4 Spice Combo'
+        };
+
+        const priceMap = {
+            1: { '100g': 130, '200g': 220, '500g': 520, 'old100': 170, 'old200': 280, 'old500': 650 },
+            2: { '100g': 140, '200g': 250, '500g': 580, 'old100': 180, 'old200': 310, 'old500': 720 },
+            3: { '100g': 100, '200g': 180, '500g': 420, 'old100': 130, 'old200': 230, 'old500': 520 },
+            4: { '100g': 110, '200g': 200, '500g': 470, 'old100': 140, 'old200': 250, 'old500': 580 },
+            5: { '100g': 160, '200g': 290, '500g': 680, 'old100': 200, 'old200': 350, 'old500': 820 },
+            6: { '100g': 150, '200g': 270, '500g': 640, 'old100': 190, 'old200': 330, 'old500': 780 },
+            7: { '100g': 180, '200g': 320, '500g': 750, 'old100': 220, 'old200': 390, 'old500': 900 },
+            8: { '200g': 750, '500g': 1700, 'old200': 950, 'old500': 2100 }
+        };
+
+        // Initialize Stock Status visually on page load
+        function applyStockSettings() {
+            for (let i = 1; i <= 8; i++) {
+                const isAvailable = productStockStatus[i];
+                const card = document.getElementById(`card-product${i}`);
+                const selectBtn = document.getElementById(`btn-select-${i}`);
+                const stockBadge = document.getElementById(`stock-badge-${i}`);
+                const dropdownRow = document.getElementById(`dropdown-row-${i}`);
+                const checkbox = document.getElementById(`product${i}`);
+
+                if (!isAvailable) {
+                    // Update main card look
+                    if (card) {
+                        card.classList.add('opacity-75', 'grayscale-[30%]');
+                    }
+                    // Show Out of stock badge on card
+                    if (stockBadge) {
+                        stockBadge.innerHTML = `<span class="bg-red-600 text-white text-xs font-extrabold px-3 py-1 rounded-full shadow-md">🔴 Out of Stock</span>`;
+                        stockBadge.classList.remove('hidden');
+                    }
+                    // Disable card select button
+                    if (selectBtn) {
+                        selectBtn.disabled = true;
+                        selectBtn.className = "w-full bg-slate-300 text-slate-500 text-sm font-bold py-3.5 rounded-2xl cursor-not-allowed";
+                        selectBtn.innerText = "Out of Stock";
+                    }
+                    // Hide or disable from the checkout collapsible list
+                    if (dropdownRow) {
+                        dropdownRow.style.opacity = "0.5";
+                        dropdownRow.style.background = "#f1f5f9";
+                    }
+                    if (checkbox) {
+                        checkbox.checked = false;
+                        checkbox.disabled = true;
+                    }
+                    const textLabel = document.getElementById(`dropdown-text-${i}`);
+                    if (textLabel) {
+                        textLabel.innerHTML += ` <span class="text-red-600 font-bold">(Out of Stock)</span>`;
+                    }
+                }
+            }
+        }
+
+        function changeSize(productNum, sizeText, price) {
+            if (!productStockStatus[productNum]) return; // Block if out of stock
+            
+            const buttons = document.querySelectorAll(`.size-btn-${productNum}`);
+            buttons.forEach(btn => {
+                if(btn.textContent.includes(sizeText)) {
+                    btn.className = `size-btn-${productNum} py-1.5 text-xs font-bold rounded-lg border border-red-600 bg-red-50 text-red-600 transition`;
+                } else {
+                    btn.className = `size-btn-${productNum} py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition`;
+                }
+            });
+
+            document.getElementById(`display-price-${productNum}`).innerText = '৳ ' + price;
+            document.getElementById(`display-old-price-${productNum}`).innerText = '৳ ' + priceMap[productNum]['old' + sizeText];
+            
+            const badgeText = productNum === 8 ? (sizeText === '200g' ? '200g x 4' : '500g x 4') : sizeText;
+            document.getElementById(`display-size-badge-${productNum}`).innerText = badgeText;
+
+            document.getElementById(`size${productNum}`).value = sizeText;
+            calculateTotal();
+        }
+
+        function toggleProductDropdown() {
+            const container = document.getElementById('productDropdownContainer');
+            const arrow = document.getElementById('dropdownArrow');
+            container.classList.toggle('hidden');
+            arrow.classList.toggle('rotate-180');
+        }
+
+        function selectProductFromCard(cardProductKey) {
+            const num = cardProductKey.replace('product', '');
+            if (!productStockStatus[num]) {
+                alert("Sorry! This product is currently out of stock.");
+                return;
+            }
+
+            const checkbox = document.getElementById(cardProductKey);
+            checkbox.checked = true;
+            
+            document.getElementById('productDropdownContainer').classList.remove('hidden');
+            document.getElementById('dropdownArrow').classList.add('rotate-180');
+            
+            calculateTotal();
+            document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function calculateTotal() {
+            let subtotal = 0;
+            let selectedCount = 0;
+            let firstSelectedDetails = "";
+
+            for (let i = 1; i <= 8; i++) {
+                if (!productStockStatus[i]) continue; // Skip out of stock items
+                
+                const chk = document.getElementById('product' + i);
+                const qtyInput = document.getElementById('qty' + i);
+                const sizeSelect = document.getElementById('size' + i);
+                
+                if (chk && chk.checked) {
+                    selectedCount++;
+                    const size = sizeSelect.value;
+                    const qty = parseInt(qtyInput.value) || 1;
+                    const unitPrice = priceMap[i][size];
+                    subtotal += unitPrice * qty;
+
+                    if (!firstSelectedDetails) {
+                        const sizeLabel = i === 8 ? (size === '200g' ? '200g x 4' : '500g x 4') : size;
+                        firstSelectedDetails = `📦 ${productShortNames[i]} (${sizeLabel}) x ${qty}`;
+                    }
+                }
+            }
+
+            let displayText = "📦 No product selected";
+            if (selectedCount === 1) {
+                displayText = firstSelectedDetails;
+            } else if (selectedCount > 1) {
+                displayText = `${firstSelectedDetails} + ${selectedCount - 1} more item(s)`;
+            }
+
+            document.getElementById('dropdownSelectedLabel').innerText = displayText;
+
+            const loc = document.getElementById('deliveryLocation').value;
+            const deliveryCharge = loc === 'inside' ? 70 : 130;
+            const grandTotal = subtotal > 0 ? subtotal + deliveryCharge : 0;
+
+            document.getElementById('summarySubtotal').innerText = '৳ ' + subtotal;
+            document.getElementById('summaryDelivery').innerText = subtotal > 0 ? '৳ ' + deliveryCharge : '৳ 0';
+            document.getElementById('summaryTotal').innerText = '৳ ' + (subtotal > 0 ? grandTotal : 0);
+        }
+
+        function prepareOrderSubmission() {
+            let summaryText = "";
+            let subtotal = 0;
+
+            for (let i = 1; i <= 8; i++) {
+                if (!productStockStatus[i]) continue;
+                
+                const chk = document.getElementById('product' + i);
+                if (chk && chk.checked) {
+                    const name = chk.value;
+                    const size = document.getElementById('size' + i).value;
+                    const qty = document.getElementById('qty' + i).value;
+                    const unitPrice = priceMap[i][size];
+                    const itemTotal = unitPrice * qty;
+                    subtotal += itemTotal;
+                    
+                    const sizeLabel = i === 8 ? (size === '200g' ? '200g x 4 Jars' : '500g x 4 Jars') : size;
+                    summaryText += `• ${name} (${sizeLabel}) x ${qty} = ৳${itemTotal}\n`;
+                }
+            }
+
+            const loc = document.getElementById('deliveryLocation').value;
+            const deliveryFee = loc === 'inside' ? 70 : 130;
+            const locationName = loc === 'inside' ? 'Inside Dhaka' : 'Outside Dhaka';
+            
+            summaryText += `\nDelivery Location: ${locationName} (৳${deliveryFee})`;
+            summaryText += `\nSubtotal: ৳${subtotal}`;
+            summaryText += `\nGrand Total (COD): ৳${subtotal + deliveryFee}`;
+
+            document.getElementById('finalOrderSummary').value = summaryText;
+        }
+
+        function openModal(productNum, title, price, mainImg, galleryImages, description) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalPrice').innerText = '৳ ' + price;
+            document.getElementById('modalImg').src = mainImg;
+            document.getElementById('modalDesc').innerText = description;
+            
+            const actionBtn = document.getElementById('modalActionBtn');
+            if (productStockStatus[productNum]) {
+                actionBtn.disabled = false;
+                actionBtn.className = "w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3.5 rounded-2xl transition shadow-md";
+                actionBtn.innerText = "Select This Product for Order";
+                actionBtn.onclick = function() {
+                    closeModal();
+                    selectProductFromCard('product' + productNum);
+                };
+            } else {
+                actionBtn.disabled = true;
+                actionBtn.className = "w-full bg-slate-300 text-slate-500 font-bold py-3.5 rounded-2xl cursor-not-allowed";
+                actionBtn.innerText = "Out of Stock (Cannot Order)";
+                actionBtn.onclick = null;
+            }
+
+            const galleryContainer = document.getElementById('modalGallery');
+            galleryContainer.innerHTML = '';
+            
+            galleryImages.forEach(imgSrc => {
+                const thumb = document.createElement('img');
+                thumb.src = imgSrc;
+                thumb.className = "w-14 h-14 object-cover rounded-xl border-2 border-slate-200 hover:border-red-600 cursor-pointer transition";
+                thumb.onerror = function() { this.src = 'https://via.placeholder.com/100x100?text=Hotspy'; };
+                thumb.onclick = () => { document.getElementById('modalImg').src = imgSrc; };
+                galleryContainer.appendChild(thumb);
+            });
+
+            document.getElementById('productModal').classList.remove('hidden');
+            document.getElementById('productModal').classList.add('flex');
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').classList.add('hidden');
+            document.getElementById('productModal').classList.remove('flex');
+        }
+
+        window.onload = function() {
+            applyStockSettings();
+            calculateTotal();
+        }
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotspy | Pure Spices & Real Flavor</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=function(){n.ready=!0;n.queue.push([])};
+        t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'YOUR_PIXEL_ID');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-red-600 selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-red-700 via-red-600 to-amber-600 text-white text-xs sm:text-sm text-center py-2.5 font-medium tracking-wide shadow-inner">
+        🔥 100% Pure & Farm-Fresh Spices | Cash on Delivery (COD) Available Across Bangladesh 🚚
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <a href="#" class="cursor-pointer flex items-center">
+                    <!-- LOGO: Make sure logo.jpg is in the same folder, or change src name -->
+                    <img src="logo.jpg" alt="Hotspy Logo" class="h-10 sm:h-12 w-auto object-contain" onerror="this.onerror=null; this.style.display='none'; document.getElementById('fallback-logo').style.display='flex';">
+                    <!-- Fallback text logo if image is missing -->
+                    <div id="fallback-logo" style="display:none;" class="items-center space-x-2">
+                        <span class="bg-red-600 text-white font-black text-xl px-3 py-1.5 rounded-xl shadow-md">🔥</span>
+                        <span class="text-2xl font-black tracking-wider text-slate-900">HOT<span class="text-red-600">SPY</span></span>
+                    </div>
+                </a>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-sm font-semibold text-slate-600">
+                <a href="#products" class="hover:text-red-600 transition">Our Spices</a>
+                <a href="#features" class="hover:text-red-600 transition">Why Us</a>
+                <a href="#order" class="hover:text-red-600 transition">Order Now</a>
+            </nav>
+            <div>
+                <a href="#order" class="bg-red-600 text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-red-600/20 hover:bg-red-700 transition transform hover:-translate-y-0.5">
+                    Order Fast (COD)
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-slate-950 via-zinc-900 to-red-950 text-white py-20 lg:py-28 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ef4444_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6 text-center lg:text-left">
+                <span class="inline-block bg-red-500/10 border border-red-500/30 text-red-400 text-xs sm:text-sm px-4 py-1.5 rounded-full uppercase tracking-widest font-bold">
+                    🌿 Pure Spices • Real Flavor
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                    Bring Traditional <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-amber-500">Aroma</span> to Your Kitchen
+                </h1>
+                <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+                    Experience 100% pure, unadulterated spice powders ground directly from premium farm harvests. Zero additives, zero preservatives—just authentic taste.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#products" onclick="fbq('track', 'ViewContent');" class="bg-red-600 text-white font-bold px-8 py-4 rounded-xl shadow-xl shadow-red-600/30 hover:bg-red-700 transition text-center text-base">
+                        Explore Spices & Combos
+                    </a>
+                    <a href="#order" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold px-8 py-4 rounded-xl transition text-center text-base backdrop-blur-sm">
+                        Cash on Delivery
+                    </a>
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <div class="relative w-72 sm:w-80 h-96 bg-gradient-to-t from-red-600/30 to-transparent rounded-3xl p-4 border border-white/10 shadow-2xl backdrop-blur-md flex items-center justify-center">
+                    <img src="chilli.jpg" alt="Hotspy Combo Pack" class="max-h-full max-w-full object-contain drop-shadow-2xl rounded-2xl" onerror="this.src='https://via.placeholder.com/400x500?text=Hotspy+Combo+Pack'">
+                    <div class="absolute -bottom-4 -right-4 bg-white text-slate-900 font-bold px-4 py-3 rounded-2xl shadow-xl border border-slate-100 text-sm">
+                        🎁 Save More with Combo
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products & Combo Section -->
+    <section id="products" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-red-600 font-bold tracking-wider uppercase text-xs">Our Premium Catalog</span>
+            <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl mt-2">Spices & Special Combo Packs</h2>
+            <p class="mt-3 text-slate-600 text-sm sm:text-base">Choose individual jars or pick our exclusive 4 Spice Combo Pack for maximum savings!</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <!-- FEATURED: 4 Spice Combo Pack (Product 8) -->
+            <div id="card-product8" class="bg-gradient-to-b from-red-50 to-white rounded-3xl shadow-md hover:shadow-xl border-2 border-red-500 overflow-hidden flex flex-col justify-between transition duration-300 group">
+                <div>
+                    <div onclick="openModal(8, '4 Spice Combo Pack (4 pcs bundle)', 750, 'chilli.jpg', ['chilli.jpg', 'cumin.jpg', 'coriander.jpg', 'turmeric.jpg'], 'Our ultimate kitchen bundle! Includes Chilli Powder, Cumin Powder, Coriander Powder, and Turmeric Powder in one discounted package. 100% pure and unadulterated.')" class="h-64 bg-red-100/50 p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                        <img src="chilli.jpg" alt="4 Spice Combo Pack" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=4+Spice+Combo'">
+                        <span class="absolute top-3 left-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md animate-pulse">🔥 Special Bundle</span>
+                        <div id="stock-badge-8" class="absolute top-3 right-3 hidden"></div>
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Combo Details</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900">4 Spice Combo Pack (4 pcs bundle)</h3>
+                        <p class="text-xs text-red-600 mt-1 font-bold">Includes Chilli, Cumin, Coriander & Turmeric</p>
+                        
+                        <!-- Size Variations Selector for Combo -->
+                        <div class="mt-4">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Select Combo Size:</label>
+                            <div class="grid grid-cols-2 gap-2" id="size-options-8">
+                                <button type="button" onclick="changeSize(8, '200g', 750)" class="size-btn-8 py-1.5 text-xs font-bold rounded-lg border border-red-600 bg-red-50 text-red-600 transition">4x 200g Jars</button>
+                                <button type="button" onclick="changeSize(8, '500g', 1700)" class="size-btn-8 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">4x 500g Jars</button>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-extrabold text-red-600" id="display-price-8">৳ 750</span>
+                                <span class="text-sm text-slate-400 line-through ml-1" id="display-old-price-8">৳ 950</span>
+                            </div>
+                            <span class="text-xs font-bold text-red-700 bg-red-100 px-2.5 py-1 rounded-md" id="display-size-badge-8">200g x 4</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button id="btn-select-8" onclick="selectProductFromCard('product8')" class="w-full bg-red-600 hover:bg-red-700 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-lg shadow-red-600/30">
+                        Select Combo for Order
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 1: Chilli Powder -->
+            <div id="card-product1" class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+                <div>
+                    <div onclick="openModal(1, 'Chilli Powder (মরিচ গুঁড়া)', 220, 'chilli.jpg', ['chilli.jpg', 'chilli-back.jpg', 'hotspy-jar.jpg'], 'Our premium Chilli Powder is sourced from selected high-grade red chillies. Carefully cleaned, sun-dried, and stone-ground to retain its natural fiery heat and rich red color.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                        <img src="chilli.jpg" alt="Chilli Powder" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Chilli+Powder'">
+                        <span class="absolute top-3 left-3 bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Bestseller</span>
+                        <div id="stock-badge-1" class="absolute top-3 right-3 hidden"></div>
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Details</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900">Chilli Powder (মরিচ গুঁড়া)</h3>
+                        <p class="text-xs text-slate-500 mt-1 font-medium">100% Pure • No Preservatives</p>
+                        
+                        <!-- Size Variations Selector -->
+                        <div class="mt-4">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Select Size:</label>
+                            <div class="grid grid-cols-3 gap-2" id="size-options-1">
+                                <button type="button" onclick="changeSize(1, '100g', 130)" class="size-btn-1 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">100g</button>
+                                <button type="button" onclick="changeSize(1, '200g', 220)" class="size-btn-1 py-1.5 text-xs font-bold rounded-lg border border-red-600 bg-red-50 text-red-600 transition">200g</button>
+                                <button type="button" onclick="changeSize(1, '500g', 520)" class="size-btn-1 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">500g</button>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-extrabold text-red-600" id="display-price-1">৳ 220</span>
+                                <span class="text-sm text-slate-400 line-through ml-1" id="display-old-price-1">৳ 280</span>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md" id="display-size-badge-1">200g</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button id="btn-select-1" onclick="selectProductFromCard('product1')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                        Select for Order
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 2: Cumin Powder -->
+            <div id="card-product2" class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+                <div>
+                    <div onclick="openModal(2, 'Cumin Powder (জিরা গুঁড়া)', 250, 'cumin.jpg', ['cumin.jpg', 'cumin-back.jpg', 'hotspy-jar.jpg'], 'Finely milled from top-tier aromatic cumin seeds. Adds an earthy, warm, and deeply aromatic profile to curries and marinades.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                        <img src="cumin.jpg" alt="Cumin Powder" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Cumin+Powder'">
+                        <div id="stock-badge-2" class="absolute top-3 right-3 hidden"></div>
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Details</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900">Cumin Powder (জিরা গুঁড়া)</h3>
+                        <p class="text-xs text-slate-500 mt-1 font-medium">Rich Aroma • Farm Fresh</p>
+                        
+                        <!-- Size Variations Selector -->
+                        <div class="mt-4">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Select Size:</label>
+                            <div class="grid grid-cols-3 gap-2" id="size-options-2">
+                                <button type="button" onclick="changeSize(2, '100g', 140)" class="size-btn-2 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">100g</button>
+                                <button type="button" onclick="changeSize(2, '200g', 250)" class="size-btn-2 py-1.5 text-xs font-bold rounded-lg border border-red-600 bg-red-50 text-red-600 transition">200g</button>
+                                <button type="button" onclick="changeSize(2, '500g', 580)" class="size-btn-2 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">500g</button>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-extrabold text-red-600" id="display-price-2">৳ 250</span>
+                                <span class="text-sm text-slate-400 line-through ml-1" id="display-old-price-2">৳ 310</span>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md" id="display-size-badge-2">200g</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button id="btn-select-2" onclick="selectProductFromCard('product2')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                        Select for Order
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 3: Coriander Powder -->
+            <div id="card-product3" class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+                <div>
+                    <div onclick="openModal(3, 'Coriander Powder (ধনিয়া গুঁড়া)', 180, 'coriander.jpg', ['coriander.jpg', 'coriander-back.jpg', 'hotspy-jar.jpg'], 'Made from premium dried coriander seeds. Perfectly ground to deliver a mild, citrusy, and refreshing herbal scent.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                        <img src="coriander.jpg" alt="Coriander Powder" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Coriander+Powder'">
+                        <div id="stock-badge-3" class="absolute top-3 right-3 hidden"></div>
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Details</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900">Coriander Powder (ধনিয়া গুঁড়া)</h3>
+                        <p class="text-xs text-slate-500 mt-1 font-medium">Natural Quality • Finely Ground</p>
+                        
+                        <!-- Size Variations Selector -->
+                        <div class="mt-4">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Select Size:</label>
+                            <div class="grid grid-cols-3 gap-2" id="size-options-3">
+                                <button type="button" onclick="changeSize(3, '100g', 100)" class="size-btn-3 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">100g</button>
+                                <button type="button" onclick="changeSize(3, '200g', 180)" class="size-btn-3 py-1.5 text-xs font-bold rounded-lg border border-red-600 bg-red-50 text-red-600 transition">200g</button>
+                                <button type="button" onclick="changeSize(3, '500g', 420)" class="size-btn-3 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">500g</button>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-extrabold text-red-600" id="display-price-3">৳ 180</span>
+                                <span class="text-sm text-slate-400 line-through ml-1" id="display-old-price-3">৳ 230</span>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md" id="display-size-badge-3">200g</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button id="btn-select-3" onclick="selectProductFromCard('product3')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                        Select for Order
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 4: Turmeric Powder -->
+            <div id="card-product4" class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+                <div>
+                    <div onclick="openModal(4, 'Turmeric Powder (হলুদ গুঁড়া)', 200, 'turmeric.jpg', ['turmeric.jpg', 'turmeric-back.jpg', 'hotspy-jar.jpg'], 'Extracted from pure raw turmeric roots. Packed with natural curcumin content, providing vibrant color and immense health benefits.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                        <img src="turmeric.jpg" alt="Turmeric Powder" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Turmeric+Powder'">
+                        <div id="stock-badge-4" class="absolute top-3 right-3 hidden"></div>
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Details</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900">Turmeric Powder (হলুদ গুঁড়া)</h3>
+                        <p class="text-xs text-slate-500 mt-1 font-medium">Vibrant Color • 100% Natural</p>
+                        
+                        <!-- Size Variations Selector -->
+                        <div class="mt-4">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Select Size:</label>
+                            <div class="grid grid-cols-3 gap-2" id="size-options-4">
+                                <button type="button" onclick="changeSize(4, '100g', 110)" class="size-btn-4 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">100g</button>
+                                <button type="button" onclick="changeSize(4, '200g', 200)" class="size-btn-4 py-1.5 text-xs font-bold rounded-lg border border-red-600 bg-red-50 text-red-600 transition">200g</button>
+                                <button type="button" onclick="changeSize(4, '500g', 470)" class="size-btn-4 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">500g</button>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-extrabold text-red-600" id="display-price-4">৳ 200</span>
+                                <span class="text-sm text-slate-400 line-through ml-1" id="display-old-price-4">৳ 250</span>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md" id="display-size-badge-4">200g</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button id="btn-select-4" onclick="selectProductFromCard('product4')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                        Select for Order
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 5: Black Pepper Powder -->
+            <div id="card-product5" class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+                <div>
+                    <div onclick="openModal(5, 'Black Pepper Powder (গোলমরিচ গুঁড়া)', 290, 'pepper.jpg', ['pepper.jpg', 'hotspy-jar.jpg', 'pepper-jar.jpg'], 'Hand-picked premium black peppercorns, cleanly ground to offer a sharp, pungent bite and robust fragrance.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                        <img src="pepper.jpg" alt="Black Pepper Powder" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Black+Pepper'">
+                        <div id="stock-badge-5" class="absolute top-3 right-3 hidden"></div>
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Details</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900">Black Pepper Powder (গোলমরিচ গুঁড়া)</h3>
+                        <p class="text-xs text-slate-500 mt-1 font-medium">Sharp Pungency • Premium</p>
+                        
+                        <!-- Size Variations Selector -->
+                        <div class="mt-4">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Select Size:</label>
+                            <div class="grid grid-cols-3 gap-2" id="size-options-5">
+                                <button type="button" onclick="changeSize(5, '100g', 160)" class="size-btn-5 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">100g</button>
+                                <button type="button" onclick="changeSize(5, '200g', 290)" class="size-btn-5 py-1.5 text-xs font-bold rounded-lg border border-red-600 bg-red-50 text-red-600 transition">200g</button>
+                                <button type="button" onclick="changeSize(5, '500g', 680)" class="size-btn-5 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">500g</button>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-extrabold text-red-600" id="display-price-5">৳ 290</span>
+                                <span class="text-sm text-slate-400 line-through ml-1" id="display-old-price-5">৳ 350</span>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md" id="display-size-badge-5">200g</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button id="btn-select-5" onclick="selectProductFromCard('product5')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                        Select for Order
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 6: Ginger Powder -->
+            <div id="card-product6" class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+                <div>
+                    <div onclick="openModal(6, 'Ginger Powder (আদা গুঁড়া)', 270, 'ginger.jpg', ['ginger.jpg', 'ginger-back.jpg', 'hotspy-jar.jpg'], 'Made from dried prime ginger roots. Provides a sharp, spicy, and warming touch ideal for tea, baking, and curries.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                        <img src="ginger.jpg" alt="Ginger Powder" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Ginger+Powder'">
+                        <div id="stock-badge-6" class="absolute top-3 right-3 hidden"></div>
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Details</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900">Ginger Powder (আদা গুঁড়া)</h3>
+                        <p class="text-xs text-slate-500 mt-1 font-medium">Warming & Aromatic</p>
+                        
+                        <!-- Size Variations Selector -->
+                        <div class="mt-4">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Select Size:</label>
+                            <div class="grid grid-cols-3 gap-2" id="size-options-6">
+                                <button type="button" onclick="changeSize(6, '100g', 150)" class="size-btn-6 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">100g</button>
+                                <button type="button" onclick="changeSize(6, '200g', 270)" class="size-btn-6 py-1.5 text-xs font-bold rounded-lg border border-red-600 bg-red-50 text-red-600 transition">200g</button>
+                                <button type="button" onclick="changeSize(6, '500g', 640)" class="size-btn-6 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">500g</button>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-extrabold text-red-600" id="display-price-6">৳ 270</span>
+                                <span class="text-sm text-slate-400 line-through ml-1" id="display-old-price-6">৳ 330</span>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md" id="display-size-badge-6">200g</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button id="btn-select-6" onclick="selectProductFromCard('product6')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                        Select for Order
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 7: Garam Masala -->
+            <div id="card-product7" class="bg-white rounded-3xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden flex flex-col justify-between transition duration-300 group">
+                <div>
+                    <div onclick="openModal(7, 'Special Garam Masala (গরম মসলা গুঁড়া)', 320, 'masala.jpg', ['masala.jpg', 'hotspy-jar.jpg', 'masala-jar.jpg'], 'A delicate blend of premium whole spices including cardamom, cinnamon, and cloves. Toast-ground to give your dishes an unforgettable scent.')" class="h-64 bg-white p-4 overflow-hidden relative flex items-center justify-center cursor-pointer">
+                        <img src="masala.jpg" alt="Garam Masala" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/300x300?text=Garam+Masala'">
+                        <div id="stock-badge-7" class="absolute top-3 right-3 hidden"></div>
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-slate-900 font-semibold text-sm bg-white/40 backdrop-blur-[2px]">🔍 View Details</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900">Special Garam Masala (গরম মসলা গুঁড়া)</h3>
+                        <p class="text-xs text-slate-500 mt-1 font-medium">Chef's Choice Blend</p>
+                        
+                        <!-- Size Variations Selector -->
+                        <div class="mt-4">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Select Size:</label>
+                            <div class="grid grid-cols-3 gap-2" id="size-options-7">
+                                <button type="button" onclick="changeSize(7, '100g', 180)" class="size-btn-7 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">100g</button>
+                                <button type="button" onclick="changeSize(7, '200g', 320)" class="size-btn-7 py-1.5 text-xs font-bold rounded-lg border border-red-600 bg-red-50 text-red-600 transition">200g</button>
+                                <button type="button" onclick="changeSize(7, '500g', 750)" class="size-btn-7 py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition">500g</button>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-extrabold text-red-600" id="display-price-7">৳ 320</span>
+                                <span class="text-sm text-slate-400 line-through ml-1" id="display-old-price-7">৳ 390</span>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md" id="display-size-badge-7">200g</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button id="btn-select-7" onclick="selectProductFromCard('product7')" class="w-full bg-slate-900 hover:bg-red-600 text-white text-sm font-bold py-3.5 rounded-2xl transition shadow-md">
+                        Select for Order
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="features" class="bg-white py-20 border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-xl mx-auto mb-16">
+                <h2 class="text-3xl font-extrabold text-slate-900">Why Choose Hotspy?</h2>
+                <p class="text-slate-600 text-sm mt-2">We bring health and original flavor directly from trusted regional farms.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center">
+                    <div class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl font-bold">🌱</div>
+                    <h3 class="text-lg font-bold text-slate-900">100% Pure & Natural</h3>
+                    <p class="text-slate-600 text-sm mt-2 leading-relaxed">Sourced straight from farms with rigorous quality standards and hygienic packaging.</p>
+                </div>
+                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center">
+                    <div class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl font-bold">🚫</div>
+                    <h3 class="text-lg font-bold text-slate-900">Zero Preservatives</h3>
+                    <p class="text-slate-600 text-sm mt-2 leading-relaxed">No artificial colors, harmful chemicals, or fillers—just pure, unadulterated spices.</p>
+                </div>
+                <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 text-center">
+                    <div class="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl font-bold">🚚</div>
+                    <h3 class="text-lg font-bold text-slate-900">Smart Location Shipping</h3>
+                    <p class="text-slate-600 text-sm mt-2 leading-relaxed">Automatic delivery calculation based on whether you are inside or outside Dhaka.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multi-Item Checkout Form Section with Collapsible Product Dropdown -->
+    <section id="order" class="py-20 bg-slate-100">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl border border-slate-200 p-8 sm:p-12 relative overflow-hidden">
+                <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-red-600 to-amber-600"></div>
+                
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Cash on Delivery Checkout</h2>
+                    <p class="text-slate-500 text-sm mt-1">Review your selected items and delivery location. Totals calculate automatically!</p>
+                </div>
+
+                <form action="https://api.web3forms.com/submit" method="POST" id="orderForm" onsubmit="prepareOrderSubmission()" class="space-y-6">
+                    <input type="hidden" name="apikey" value="e2450de3-cd40-4a8e-a0b1-9d41d3c7afe7">
+                    <input type="hidden" name="subject" value="New Multi-Item Order - Hotspy Spices!">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    
+                    <input type="hidden" name="Order_Summary" id="finalOrderSummary">
+
+                    <!-- Clean Collapsible Product Picker -->
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Selected Products for Order:</label>
+                        
+                        <!-- Toggle Button to show/hide full product list -->
+                        <div class="border border-slate-300 rounded-2xl overflow-hidden bg-white shadow-sm">
+                            <button type="button" onclick="toggleProductDropdown()" class="w-full px-4 py-3.5 flex items-center justify-between bg-slate-50 hover:bg-slate-100 text-slate-800 text-sm font-bold transition">
+                                <span id="dropdownSelectedLabel" class="truncate pr-2 text-left">📦 Select in-stock products above</span>
+                                <div class="flex items-center space-x-1.5 shrink-0">
+                                    <span class="text-xs bg-red-100 text-red-600 px-2.5 py-1 rounded-full font-bold">Change / Select</span>
+                                    <span id="dropdownArrow" class="text-slate-500 transform transition duration-300">▼</span>
+                                </div>
+                            </button>
+
+                            <!-- Hidden/Collapsible Product Checklist Container -->
+                            <div id="productDropdownContainer" class="hidden max-h-72 overflow-y-auto p-4 space-y-3 border-t border-slate-200 bg-white">
+                                
+                                <!-- 8. 4 Spice Combo Pack -->
+                                <div id="dropdown-row-8" class="flex items-center justify-between p-2.5 bg-red-50/60 rounded-xl border border-red-200 shadow-sm">
+                                    <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
+                                        <input type="checkbox" id="product8" value="4 Spice Combo Pack (4 pcs bundle)" data-base-price="750" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
+                                        <span id="dropdown-text-8" class="text-xs font-bold text-red-900">🔥 4 Spice Combo Pack</span>
+                                    </label>
+                                    <div class="flex items-center space-x-2">
+                                        <select id="size8" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
+                                            <option value="200g" selected>200g x 4 (৳750)</option>
+                                            <option value="500g">500g x 4 (৳1700)</option>
+                                        </select>
+                                        <input type="number" id="qty8" value="1" min="1" max="10" onchange="calculateTotal()" class="w-12 px-1 py-1 text-center border border-slate-300 rounded-lg text-xs font-medium">
+                                    </div>
+                                </div>
+
+                                <!-- 1. Chilli Powder -->
+                                <div id="dropdown-row-1" class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                    <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
+                                        <input type="checkbox" id="product1" value="Chilli Powder (মরিচ গুঁড়া)" data-base-price="220" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
+                                        <span id="dropdown-text-1" class="text-xs font-bold text-slate-800">Chilli Powder</span>
+                                    </label>
+                                    <div class="flex items-center space-x-2">
+                                        <select id="size1" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
+                                            <option value="100g">100g (৳130)</option>
+                                            <option value="200g" selected>200g (৳220)</option>
+                                            <option value="500g">500g (৳520)</option>
+                                        </select>
+                                        <input type="number" id="qty1" value="1" min="1" max="10" onchange="calculateTotal()" class="w-12 px-1 py-1 text-center border border-slate-300 rounded-lg text-xs font-medium">
+                                    </div>
+                                </div>
+
+                                <!-- 2. Cumin Powder -->
+                                <div id="dropdown-row-2" class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                    <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
+                                        <input type="checkbox" id="product2" value="Cumin Powder (জিরা গুঁড়া)" data-base-price="250" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
+                                        <span id="dropdown-text-2" class="text-xs font-bold text-slate-800">Cumin Powder</span>
+                                    </label>
+                                    <div class="flex items-center space-x-2">
+                                        <select id="size2" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
+                                            <option value="100g">100g (৳140)</option>
+                                            <option value="200g" selected>200g (৳250)</option>
+                                            <option value="500g">500g (৳580)</option>
+                                        </select>
+                                        <input type="number" id="qty2" value="1" min="1" max="10" onchange="calculateTotal()" class="w-12 px-1 py-1 text-center border border-slate-300 rounded-lg text-xs font-medium">
+                                    </div>
+                                </div>
+
+                                <!-- 3. Coriander Powder -->
+                                <div id="dropdown-row-3" class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                    <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
+                                        <input type="checkbox" id="product3" value="Coriander Powder (ধনিয়া গুঁড়া)" data-base-price="180" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
+                                        <span id="dropdown-text-3" class="text-xs font-bold text-slate-800">Coriander Powder</span>
+                                    </label>
+                                    <div class="flex items-center space-x-2">
+                                        <select id="size3" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
+                                            <option value="100g">100g (৳100)</option>
+                                            <option value="200g" selected>200g (৳180)</option>
+                                            <option value="500g">500g (৳420)</option>
+                                        </select>
+                                        <input type="number" id="qty3" value="1" min="1" max="10" onchange="calculateTotal()" class="w-12 px-1 py-1 text-center border border-slate-300 rounded-lg text-xs font-medium">
+                                    </div>
+                                </div>
+
+                                <!-- 4. Turmeric Powder -->
+                                <div id="dropdown-row-4" class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                    <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
+                                        <input type="checkbox" id="product4" value="Turmeric Powder (হলুদ গুঁড়া)" data-base-price="200" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
+                                        <span id="dropdown-text-4" class="text-xs font-bold text-slate-800">Turmeric Powder</span>
+                                    </label>
+                                    <div class="flex items-center space-x-2">
+                                        <select id="size4" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
+                                            <option value="100g">100g (৳110)</option>
+                                            <option value="200g" selected>200g (৳200)</option>
+                                            <option value="500g">500g (৳470)</option>
+                                        </select>
+                                        <input type="number" id="qty4" value="1" min="1" max="10" onchange="calculateTotal()" class="w-12 px-1 py-1 text-center border border-slate-300 rounded-lg text-xs font-medium">
+                                    </div>
+                                </div>
+
+                                <!-- 5. Black Pepper Powder -->
+                                <div id="dropdown-row-5" class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                    <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
+                                        <input type="checkbox" id="product5" value="Black Pepper Powder (গোলমরিচ গুঁড়া)" data-base-price="290" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
+                                        <span id="dropdown-text-5" class="text-xs font-bold text-slate-800">Black Pepper</span>
+                                    </label>
+                                    <div class="flex items-center space-x-2">
+                                        <select id="size5" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
+                                            <option value="100g">100g (৳160)</option>
+                                            <option value="200g" selected>200g (৳290)</option>
+                                            <option value="500g">500g (৳680)</option>
+                                        </select>
+                                        <input type="number" id="qty5" value="1" min="1" max="10" onchange="calculateTotal()" class="w-12 px-1 py-1 text-center border border-slate-300 rounded-lg text-xs font-medium">
+                                    </div>
+                                </div>
+
+                                <!-- 6. Ginger Powder -->
+                                <div id="dropdown-row-6" class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                    <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
+                                        <input type="checkbox" id="product6" value="Ginger Powder (আদা গুঁড়া)" data-base-price="270" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
+                                        <span id="dropdown-text-6" class="text-xs font-bold text-slate-800">Ginger Powder</span>
+                                    </label>
+                                    <div class="flex items-center space-x-2">
+                                        <select id="size6" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
+                                            <option value="100g">100g (৳150)</option>
+                                            <option value="200g" selected>200g (৳270)</option>
+                                            <option value="500g">500g (৳640)</option>
+                                        </select>
+                                        <input type="number" id="qty6" value="1" min="1" max="10" onchange="calculateTotal()" class="w-12 px-1 py-1 text-center border border-slate-300 rounded-lg text-xs font-medium">
+                                    </div>
+                                </div>
+
+                                <!-- 7. Garam Masala -->
+                                <div id="dropdown-row-7" class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100 shadow-sm">
+                                    <label class="flex items-center space-x-2.5 cursor-pointer flex-1">
+                                        <input type="checkbox" id="product7" value="Special Garam Masala (গরম মসলা গুঁড়া)" data-base-price="320" onchange="calculateTotal()" class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
+                                        <span id="dropdown-text-7" class="text-xs font-bold text-slate-800">Garam Masala</span>
+                                    </label>
+                                    <div class="flex items-center space-x-2">
+                                        <select id="size7" onchange="calculateTotal()" class="text-xs border border-slate-300 rounded-lg px-1.5 py-1 bg-white font-medium">
+                                            <option value="100g">100g (৳180)</option>
+                                            <option value="200g" selected>200g (৳320)</option>
+                                            <option value="500g">500g (৳750)</option>
+                                        </select>
+                                        <input type="number" id="qty7" value="1" min="1" max="10" onchange="calculateTotal()" class="w-12 px-1 py-1 text-center border border-slate-300 rounded-lg text-xs font-medium">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Location -->
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Delivery Location:</label>
+                        <select name="Delivery_Location" id="deliveryLocation" onchange="calculateTotal()" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-red-500 focus:outline-none bg-white font-medium text-sm">
+                            <option value="inside">Inside Dhaka (Delivery Charge: ৳ 70)</option>
+                            <option value="outside" selected>Outside Dhaka (Delivery Charge: ৳ 130)</option>
+                        </select>
+                    </div>
+
+                    <!-- Customer Info -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Your Name *</label>
+                            <input type="text" name="name" required placeholder="Full Name" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-red-500 focus:outline-none text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Phone Number *</label>
+                            <input type="tel" name="phone" required placeholder="01XXXXXXXXX" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-red-500 focus:outline-none text-sm">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Delivery Address *</label>
+                        <textarea name="address" rows="3" required placeholder="House/Road, Area, Thana, District" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-red-500 focus:outline-none text-sm"></textarea>
+                    </div>
+
+                    <!-- Live Bill Summary Box -->
+                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-2 text-sm">
+                        <div class="flex justify-between text-slate-600">
+                            <span>Subtotal Items:</span>
+                            <span id="summarySubtotal" class="font-bold text-slate-900">৳ 0</span>
+                        </div>
+                        <div class="flex justify-between text-slate-600">
+                            <span>Delivery Charge:</span>
+                            <span id="summaryDelivery" class="font-bold text-slate-900">৳ 130</span>
+                        </div>
+                        <div class="border-t border-slate-200 pt-2 flex justify-between text-base font-extrabold text-slate-900">
+                            <span>Total Due (COD):</span>
+                            <span id="summaryTotal" class="text-red-600">৳ 130</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-extrabold py-4 rounded-2xl shadow-xl shadow-red-600/30 transition text-base tracking-wide">
+                            Confirm Order (Cash on Delivery)
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-white py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <h3 class="text-xl font-bold tracking-wider">HOTSPY</h3>
+            <p class="text-slate-400 text-sm">Pure Spices & Real Flavor. Delivered right to your doorstep across Bangladesh.</p>
+            <p class="text-slate-600 text-xs pt-4">&copy; 2026 Hotspy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Product Details Modal with Thumbnail Gallery -->
+    <div id="productModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl animate-in fade-in zoom-in duration-200">
+            <button onclick="closeModal()" class="absolute top-4 right-4 bg-slate-100 hover:bg-red-100 text-slate-600 hover:text-red-600 w-10 h-10 rounded-full flex items-center justify-center font-bold transition">✕</button>
+            
+            <div class="space-y-4">
+                <div class="h-64 bg-slate-50 rounded-2xl p-4 flex items-center justify-center border border-slate-100 overflow-hidden">
+                    <img id="modalImg" src="" alt="Product Preview" class="max-h-full max-w-full object-contain drop-shadow-md">
+                </div>
+
+                <div id="modalGallery" class="flex items-center justify-center space-x-3 overflow-x-auto py-1"></div>
+
+                <div>
+                    <h3 id="modalTitle" class="text-xl font-extrabold text-slate-900"></h3>
+                    <p class="text-red-600 font-extrabold text-2xl mt-1" id="modalPrice"></p>
+                </div>
+                
+                <p id="modalDesc" class="text-slate-600 text-sm leading-relaxed"></p>
+
+                <div class="pt-2">
+                    <button id="modalActionBtn" onclick="" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3.5 rounded-2xl transition shadow-md">
+                        Select This Product for Order
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Handling Stock Control, Variations & Pricing Logic -->
+    <script>
+        /* 
+          ==================================================
+          CONTROL STOCK HERE:
+          Set any product ID to 'true' (In Stock) or 'false' (Out of Stock).
+          If set to false, users can view it in the catalog/modal 
+          but CANNOT select it or buy it!
+          ==================================================
+        */
+        const productStockStatus = {
+            1: true,  // Chilli Powder
+            2: true,  // Cumin Powder
+            3: true,  // Coriander Powder
+            4: true,  // Turmeric Powder
+            5: true,  // Black Pepper Powder
+            6: true,  // Ginger Powder
+            7: true,  // Garam Masala
+            8: true   // 4 Spice Combo Pack
+        };
+
+        const productShortNames = {
+            1: 'Chilli Powder',
+            2: 'Cumin Powder',
+            3: 'Coriander Powder',
+            4: 'Turmeric Powder',
+            5: 'Black Pepper',
+            6: 'Ginger Powder',
+            7: 'Garam Masala',
+            8: '4 Spice Combo'
+        };
+
+        const priceMap = {
+            1: { '100g': 130, '200g': 220, '500g': 520, 'old100': 170, 'old200': 280, 'old500': 650 },
+            2: { '100g': 140, '200g': 250, '500g': 580, 'old100': 180, 'old200': 310, 'old500': 720 },
+            3: { '100g': 100, '200g': 180, '500g': 420, 'old100': 130, 'old200': 230, 'old500': 520 },
+            4: { '100g': 110, '200g': 200, '500g': 470, 'old100': 140, 'old200': 250, 'old500': 580 },
+            5: { '100g': 160, '200g': 290, '500g': 680, 'old100': 200, 'old200': 350, 'old500': 820 },
+            6: { '100g': 150, '200g': 270, '500g': 640, 'old100': 190, 'old200': 330, 'old500': 780 },
+            7: { '100g': 180, '200g': 320, '500g': 750, 'old100': 220, 'old200': 390, 'old500': 900 },
+            8: { '200g': 750, '500g': 1700, 'old200': 950, 'old500': 2100 }
+        };
+
+        // Initialize Stock Status visually on page load
+        function applyStockSettings() {
+            for (let i = 1; i <= 8; i++) {
+                const isAvailable = productStockStatus[i];
+                const card = document.getElementById(`card-product${i}`);
+                const selectBtn = document.getElementById(`btn-select-${i}`);
+                const stockBadge = document.getElementById(`stock-badge-${i}`);
+                const dropdownRow = document.getElementById(`dropdown-row-${i}`);
+                const checkbox = document.getElementById(`product${i}`);
+
+                if (!isAvailable) {
+                    // Update main card look
+                    if (card) {
+                        card.classList.add('opacity-75', 'grayscale-[30%]');
+                    }
+                    // Show Out of stock badge on card
+                    if (stockBadge) {
+                        stockBadge.innerHTML = `<span class="bg-red-600 text-white text-xs font-extrabold px-3 py-1 rounded-full shadow-md">🔴 Out of Stock</span>`;
+                        stockBadge.classList.remove('hidden');
+                    }
+                    // Disable card select button
+                    if (selectBtn) {
+                        selectBtn.disabled = true;
+                        selectBtn.className = "w-full bg-slate-300 text-slate-500 text-sm font-bold py-3.5 rounded-2xl cursor-not-allowed";
+                        selectBtn.innerText = "Out of Stock";
+                    }
+                    // Hide or disable from the checkout collapsible list
+                    if (dropdownRow) {
+                        dropdownRow.style.opacity = "0.5";
+                        dropdownRow.style.background = "#f1f5f9";
+                    }
+                    if (checkbox) {
+                        checkbox.checked = false;
+                        checkbox.disabled = true;
+                    }
+                    const textLabel = document.getElementById(`dropdown-text-${i}`);
+                    if (textLabel) {
+                        textLabel.innerHTML += ` <span class="text-red-600 font-bold">(Out of Stock)</span>`;
+                    }
+                }
+            }
+        }
+
+        function changeSize(productNum, sizeText, price) {
+            if (!productStockStatus[productNum]) return; // Block if out of stock
+            
+            const buttons = document.querySelectorAll(`.size-btn-${productNum}`);
+            buttons.forEach(btn => {
+                if(btn.textContent.includes(sizeText)) {
+                    btn.className = `size-btn-${productNum} py-1.5 text-xs font-bold rounded-lg border border-red-600 bg-red-50 text-red-600 transition`;
+                } else {
+                    btn.className = `size-btn-${productNum} py-1.5 text-xs font-bold rounded-lg border border-slate-200 bg-slate-50 text-slate-700 hover:border-red-500 transition`;
+                }
+            });
+
+            document.getElementById(`display-price-${productNum}`).innerText = '৳ ' + price;
+            document.getElementById(`display-old-price-${productNum}`).innerText = '৳ ' + priceMap[productNum]['old' + sizeText];
+            
+            const badgeText = productNum === 8 ? (sizeText === '200g' ? '200g x 4' : '500g x 4') : sizeText;
+            document.getElementById(`display-size-badge-${productNum}`).innerText = badgeText;
+
+            document.getElementById(`size${productNum}`).value = sizeText;
+            calculateTotal();
+        }
+
+        function toggleProductDropdown() {
+            const container = document.getElementById('productDropdownContainer');
+            const arrow = document.getElementById('dropdownArrow');
+            container.classList.toggle('hidden');
+            arrow.classList.toggle('rotate-180');
+        }
+
+        function selectProductFromCard(cardProductKey) {
+            const num = cardProductKey.replace('product', '');
+            if (!productStockStatus[num]) {
+                alert("Sorry! This product is currently out of stock.");
+                return;
+            }
+
+            const checkbox = document.getElementById(cardProductKey);
+            checkbox.checked = true;
+            
+            document.getElementById('productDropdownContainer').classList.remove('hidden');
+            document.getElementById('dropdownArrow').classList.add('rotate-180');
+            
+            calculateTotal();
+            document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function calculateTotal() {
+            let subtotal = 0;
+            let selectedCount = 0;
+            let firstSelectedDetails = "";
+
+            for (let i = 1; i <= 8; i++) {
+                if (!productStockStatus[i]) continue; // Skip out of stock items
+                
+                const chk = document.getElementById('product' + i);
+                const qtyInput = document.getElementById('qty' + i);
+                const sizeSelect = document.getElementById('size' + i);
+                
+                if (chk && chk.checked) {
+                    selectedCount++;
+                    const size = sizeSelect.value;
+                    const qty = parseInt(qtyInput.value) || 1;
+                    const unitPrice = priceMap[i][size];
+                    subtotal += unitPrice * qty;
+
+                    if (!firstSelectedDetails) {
+                        const sizeLabel = i === 8 ? (size === '200g' ? '200g x 4' : '500g x 4') : size;
+                        firstSelectedDetails = `📦 ${productShortNames[i]} (${sizeLabel}) x ${qty}`;
+                    }
+                }
+            }
+
+            let displayText = "📦 No product selected";
+            if (selectedCount === 1) {
+                displayText = firstSelectedDetails;
+            } else if (selectedCount > 1) {
+                displayText = `${firstSelectedDetails} + ${selectedCount - 1} more item(s)`;
+            }
+
+            document.getElementById('dropdownSelectedLabel').innerText = displayText;
+
+            const loc = document.getElementById('deliveryLocation').value;
+            const deliveryCharge = loc === 'inside' ? 70 : 130;
+            const grandTotal = subtotal > 0 ? subtotal + deliveryCharge : 0;
+
+            document.getElementById('summarySubtotal').innerText = '৳ ' + subtotal;
+            document.getElementById('summaryDelivery').innerText = subtotal > 0 ? '৳ ' + deliveryCharge : '৳ 0';
+            document.getElementById('summaryTotal').innerText = '৳ ' + (subtotal > 0 ? grandTotal : 0);
+        }
+
+        function prepareOrderSubmission() {
+            let summaryText = "";
+            let subtotal = 0;
+
+            for (let i = 1; i <= 8; i++) {
+                if (!productStockStatus[i]) continue;
+                
+                const chk = document.getElementById('product' + i);
+                if (chk && chk.checked) {
+                    const name = chk.value;
+                    const size = document.getElementById('size' + i).value;
+                    const qty = document.getElementById('qty' + i).value;
+                    const unitPrice = priceMap[i][size];
+                    const itemTotal = unitPrice * qty;
+                    subtotal += itemTotal;
+                    
+                    const sizeLabel = i === 8 ? (size === '200g' ? '200g x 4 Jars' : '500g x 4 Jars') : size;
+                    summaryText += `• ${name} (${sizeLabel}) x ${qty} = ৳${itemTotal}\n`;
+                }
+            }
+
+            const loc = document.getElementById('deliveryLocation').value;
+            const deliveryFee = loc === 'inside' ? 70 : 130;
+            const locationName = loc === 'inside' ? 'Inside Dhaka' : 'Outside Dhaka';
+            
+            summaryText += `\nDelivery Location: ${locationName} (৳${deliveryFee})`;
+            summaryText += `\nSubtotal: ৳${subtotal}`;
+            summaryText += `\nGrand Total (COD): ৳${subtotal + deliveryFee}`;
+
+            document.getElementById('finalOrderSummary').value = summaryText;
+        }
+
+        function openModal(productNum, title, price, mainImg, galleryImages, description) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalPrice').innerText = '৳ ' + price;
+            document.getElementById('modalImg').src = mainImg;
+            document.getElementById('modalDesc').innerText = description;
+            
+            const actionBtn = document.getElementById('modalActionBtn');
+            if (productStockStatus[productNum]) {
+                actionBtn.disabled = false;
+                actionBtn.className = "w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3.5 rounded-2xl transition shadow-md";
+                actionBtn.innerText = "Select This Product for Order";
+                actionBtn.onclick = function() {
+                    closeModal();
+                    selectProductFromCard('product' + productNum);
+                };
+            } else {
+                actionBtn.disabled = true;
+                actionBtn.className = "w-full bg-slate-300 text-slate-500 font-bold py-3.5 rounded-2xl cursor-not-allowed";
+                actionBtn.innerText = "Out of Stock (Cannot Order)";
+                actionBtn.onclick = null;
+            }
+
+            const galleryContainer = document.getElementById('modalGallery');
+            galleryContainer.innerHTML = '';
+            
+            galleryImages.forEach(imgSrc => {
+                const thumb = document.createElement('img');
+                thumb.src = imgSrc;
+                thumb.className = "w-14 h-14 object-cover rounded-xl border-2 border-slate-200 hover:border-red-600 cursor-pointer transition";
+                thumb.onerror = function() { this.src = 'https://via.placeholder.com/100x100?text=Hotspy'; };
+                thumb.onclick = () => { document.getElementById('modalImg').src = imgSrc; };
+                galleryContainer.appendChild(thumb);
+            });
+
+            document.getElementById('productModal').classList.remove('hidden');
+            document.getElementById('productModal').classList.add('flex');
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').classList.add('hidden');
+            document.getElementById('productModal').classList.remove('flex');
+        }
+
+        window.onload = function() {
+            applyStockSettings();
             calculateTotal();
         }
     </script>
